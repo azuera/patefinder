@@ -1,15 +1,14 @@
 <?php
 
 var_dump($_POST);
-if(!empty($_POST)){
+if (!empty($_POST)) {
     $usermail = $_POST['email'];
-    $sql = "SELECT userr_password FROM userr WHERE userr_email='$usermail'";
+    $sql = "SELECT userr_password FROM userr WHERE userr_email='$usermail' OR userr_name='$usermail'";
     $statement = $connection->query($sql);
     $result = $statement->fetch();
-    $hash=$result;
+    $hash = $result;
     var_dump($result);
-    if (password_verify($_POST['password'],$hash['userr_password']))
-    {
+    if (password_verify($_POST['password'], $hash['userr_password'])) {
         $_SESSION['email'] = $_POST['email'];
         echo "Le mot de passe est correct.";
         header('location:index.php?login=success');
@@ -22,8 +21,8 @@ if(!empty($_POST)){
 ?>
 <form action="" method="post">
     <div class="mb-3">
-        <label for="email" class="form-label">usermail</label>
-        <input type="email" class="form-control" id="email" name="email">
+        <label for="email" class="form-label">usermail/ username</label>
+        <input type="text" class="form-control" id="email" name="email">
     </div>
     <div class="mb-3">
         <label for="password" class="form-label">Password</label>
