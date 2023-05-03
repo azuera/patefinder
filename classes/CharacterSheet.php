@@ -3,255 +3,187 @@
 class CharacterSheet
 {
 
-    protected string $character_sheet_name;
-    protected string $character_sheet_race;
-    protected string $character_sheet_class;
-    protected int $character_sheet_status;
-    protected int $characteristic_initiative;
-    protected int $characteristic_hp_max;
-    protected int $characteristic_actual_hp;
-    protected int $characteristic_mp_max;
-    protected int $characteristic_actual_mp;
-    protected int $characteristic_strength;
-    protected int $characteristic_dexterity;
-    protected int $characteristic_stamina;
-    protected int $characteristic_intelligence;
-    protected int $characteristic_wisdom;
-    protected int $characteristic_luck;
-    protected int $game_id;
-    protected array $skills = [];
-    protected array $equipments = [];
+    protected string $characterSheetName;
+    protected string $characterSheetRace;
+    protected string $characterSheetClass;
+    protected int $characterSheetStatus;
+    protected int $characteristicInitiative;
+    protected int $characteristicHpMax;
+    protected int $characteristicActualHp;
+    protected int $characteristicMpMax;
+    protected int $characteristicActualMp;
+    protected int $characteristicStrength;
+    protected int $characteristicDexterity;
+    protected int $characteristicStamina;
+    protected int $characteristicIntelligence;
+    protected int $characteristicWisdom;
+    protected int $characteristicLuck;
 
-
-    public function getCharacter_sheet_name(): string
+    public function getcharacterSheetName(): string
     {
-        return $this->character_sheet_name;
+        return $this->characterSheetName;
     }
 
-    public function setCharacter_sheet_name(string $character_sheet_name): self
+    public function setcharacterSheetName(string $characterSheetName): self
     {
-        $this->character_sheet_name = $character_sheet_name;
+        $this->characterSheetName = $characterSheetName;
         return $this;
     }
 
 
-    public function getCharacteristic_initiative(): int
+    public function getcharacteristicInitiative(): int
     {
-        return $this->characteristic_initiative;
+        return $this->characteristicInitiative;
     }
 
-    public function setCharacteristic_initiative(int $characteristic_initiative): self
+    public function setcharacteristicInitiative(int $characteristicInitiative): self
     {
-        $this->characteristic_initiative = $characteristic_initiative;
+        $this->characteristicInitiative = $characteristicInitiative;
         return $this;
     }
 
-    public function getCharacteristic_hp_max(): int
+    public function getcharacteristicHpMax(): int
     {
-        return $this->characteristic_hp_max;
+        return $this->characteristicHpMax;
     }
 
-    public function setCharacteristic_hp_max(int $characteristic_hp_max): self
+    public function setcharacteristicHpMax(int $characteristicHpMax): self
     {
-        $this->characteristic_hp_max = $characteristic_hp_max;
+        $this->characteristicHpMax = $characteristicHpMax;
         return $this;
     }
 
-    public function getCharacteristic_actual_hp(): int
+    public function getcharacteristicActualHp(): int
     {
-        return $this->characteristic_actual_hp;
+        return $this->characteristicActualHp;
     }
 
-    public function setCharacteristic_actual_hp(int $characteristic_actual_hp): self
+    public function setcharacteristicActualHp(int $characteristicActualHp): self
     {
-        $this->characteristic_actual_hp = $characteristic_actual_hp;
+        $this->characteristicActualHp = $characteristicActualHp;
         return $this;
     }
 
-    public function getCharacteristic_mp_max(): int
+    public function getcharacteristicMpMax(): int
     {
-        return $this->characteristic_mp_max;
+        return $this->characteristicMpMax;
     }
 
-    public function setCharacteristic_mp_max(int $characteristic_mp_max): self
+    public function setcharacteristicMpMax(int $characteristicMpMax): self
     {
-        $this->characteristic_mp_max = $characteristic_mp_max;
+        $this->characteristicMpMax = $characteristicMpMax;
         return $this;
     }
 
-    public function getCharacteristic_actual_mp(): int
+    public function getcharacteristicActualMp(): int
     {
-        return $this->characteristic_actual_mp;
+        return $this->characteristicActualMp;
     }
 
 
-    public function setCharacteristic_actual_mp(int $characteristic_actual_mp): self
+    public function setcharacteristicActualMp(int $characteristicActualMp): self
     {
-        $this->characteristic_actual_mp = $characteristic_actual_mp;
+        $this->characteristicActualMp = $characteristicActualMp;
         return $this;
     }
 
-    public function getCharacteristic_strength(): int
+    public function getcharacteristicStrength(): int
     {
-        return $this->characteristic_strength;
+        return $this->characteristicStrength;
     }
 
-    public function setCharacteristic_strength(int $characteristic_strength): self
+    public function setcharacteristicStrength(int $characteristicStrength): self
     {
-        $this->characteristic_strength = $characteristic_strength;
+        $this->characteristicStrength = $characteristicStrength;
         return $this;
     }
 
-    public function getCharacteristic_dexterity(): int
+    public function getcharacteristicDexterity(): int
     {
-        return $this->characteristic_dexterity;
+        return $this->characteristicDexterity;
     }
 
-    public function setCharacteristic_dexterity(int $characteristic_dexterity): self
+    public function setcharacteristicDexterity(int $characteristicDexterity): self
     {
-        $this->characteristic_dexterity = $characteristic_dexterity;
+        $this->characteristicDexterity = $characteristicDexterity;
         return $this;
     }
 
-    public function getCharacteristic_stamina(): int
+    public function getcharacteristicStamina(): int
     {
-        return $this->characteristic_stamina;
+        return $this->characteristicStamina;
     }
 
-    public function setCharacteristic_stamina(int $characteristic_stamina): self
+    public function setcharacteristicStamina(int $characteristicStamina): self
     {
-        $this->characteristic_stamina = $characteristic_stamina;
+        $this->characteristicStamina = $characteristicStamina;
         return $this;
     }
 
-    public function getCharacteristic_intelligence(): int
+    public function getcharacteristicIntelligence(): int
     {
-        return $this->characteristic_intelligence;
+        return $this->characteristicIntelligence;
     }
 
-    public function setCharacteristic_intelligence(int $characteristic_intelligence): self
+    public function setcharacteristicIntelligence(int $characteristicIntelligence): self
     {
-        $this->characteristic_intelligence = $characteristic_intelligence;
+        $this->characteristicIntelligence = $characteristicIntelligence;
         return $this;
     }
 
-    public function getCharacteristic_wisdom(): int
+    public function getcharacteristicWisdom(): int
     {
-        return $this->characteristic_wisdom;
+        return $this->characteristicWisdom;
     }
 
-    public function setCharacteristic_wisdom(int $characteristic_wisdom): self
+    public function setcharacteristicWisdom(int $characteristicWisdom): self
     {
-        $this->characteristic_wisdom = $characteristic_wisdom;
+        $this->characteristicWisdom = $characteristicWisdom;
         return $this;
     }
 
-    public function getCharacteristic_luck(): int
+    public function getcharacteristicLuck(): int
     {
-        return $this->characteristic_luck;
+        return $this->characteristicLuck;
     }
 
-    public function setCharacteristic_luck(int $characteristic_luck): self
+    public function setcharacteristicLuck(int $characteristicLuck): self
     {
-        $this->characteristic_luck = $characteristic_luck;
+        $this->characteristicLuck = $characteristicLuck;
         return $this;
     }
 
-    public function getSkills(): array
+    public function getcharacterSheetRace(): string
     {
-        return $this->skills;
+        return $this->characterSheetRace;
     }
 
-    public function setSkills(array $skills): self
+    public function setcharacterSheetRace(string $characterSheetRace): self
     {
-        $this->skills = $skills;
+        $this->characterSheetRace = $characterSheetRace;
         return $this;
     }
 
-    public function getEquipments(): array
+    public function getcharacterSheetClass(): string
     {
-        return $this->equipments;
+        return $this->characterSheetClass;
     }
 
-    public function setEquipments(array $equipments): self
+    public function setcharacterSheetClass(string $characterSheetClass): self
     {
-        $this->equipments = $equipments;
+        $this->characterSheetClass = $characterSheetClass;
         return $this;
     }
 
-    /**
-     * @return string
-     */
-    public function getCharacter_sheet_race(): string
+    public function getcharacterSheetStatus(): int
     {
-        return $this->character_sheet_race;
+        return $this->characterSheetStatus;
     }
 
-    /**
-     * @param string $character_sheet_race 
-     * @return self
-     */
-    public function setCharacter_sheet_race(string $character_sheet_race): self
+    public function setcharacterSheetStatus(int $characterSheetStatus): self
     {
-        $this->character_sheet_race = $character_sheet_race;
-        return $this;
-    }
-
-    /**
-     * @return string
-     */
-    public function getCharacter_sheet_class(): string
-    {
-        return $this->character_sheet_class;
-    }
-
-    /**
-     * @param string $character_sheet_class 
-     * @return self
-     */
-    public function setCharacter_sheet_class(string $character_sheet_class): self
-    {
-        $this->character_sheet_class = $character_sheet_class;
-        return $this;
-    }
-
-    /**
-     * @return int
-     */
-    public function getCharacter_sheet_status(): int
-    {
-        return $this->character_sheet_status;
-    }
-
-    /**
-     * @param int $character_sheet_status 
-     * @return self
-     */
-    public function setCharacter_sheet_status(int $character_sheet_status): self
-    {
-        $this->character_sheet_status = $character_sheet_status;
-        return $this;
-    }
-
-    /**
-     * @return int
-     */
-    public function getGame_id(): int
-    {
-        return $this->game_id;
-    }
-
-    /**
-     * @param int $game_id 
-     * @return self
-     */
-    public function setGame_id(int $game_id): self
-    {
-        $this->game_id = $game_id;
+        $this->characterSheetStatus = $characterSheetStatus;
         return $this;
     }
 }
-
-
-
 ?>
