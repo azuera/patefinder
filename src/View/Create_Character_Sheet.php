@@ -72,7 +72,7 @@ if (!empty($_POST)) {
 
 ?>
 
-    <form method="post" action="?page=character_sheet">
+    <form method="post" action="">
       <label for="character_sheet_name">Character's Name:</label>
       <input type="text" id="character_sheet_name" name="character_sheet_name" value="qsfdbqdb" required>
 

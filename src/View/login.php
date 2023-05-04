@@ -1,14 +1,18 @@
 <?php
 
+
+use Model\User;
+
 var_dump($_POST);
 if (!empty($_POST)) {
     $usermail = $_POST['email_username'];
-    $sql = "SELECT userr_password FROM userr WHERE userr_email='$usermail' OR userr_name='$usermail'";
+    $sql = "SELECT * FROM userr WHERE userr_email='$usermail' ";
     $statement = $connection->query($sql);
+    $statement->setFetchMode(PDO::FETCH_CLASS, User::class);
     $result = $statement->fetch();
-    $hash = $result;
-    var_dump($result);
-    if (password_verify($_POST['password'], $hash['userr_password'])) {
+    $hash = $result->getUserrPassword();
+    var_dump($hash);
+    if (password_verify($_POST['password'],$hash)) {
         $_SESSION['email_username'] = $_POST['email_username'];
         echo "Le mot de passe est correct.";
         header('location:index.php?login=success');

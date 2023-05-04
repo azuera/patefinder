@@ -33,17 +33,20 @@ require_once 'autoload.php';
 
 
                 <?php
-                if (isset($_SESSION['email'])){
+                if (isset($_SESSION['email_username'])){
                     ?>
 
                     <li class="nav-item">
-                        <a class="nav-link" href="?page=login"><?php echo "bonjour ".$_SESSION['email']; ?></a>
+                        <a class="nav-link" href="?page=login"><?php echo "bonjour ".$_SESSION['email_username']; ?></a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="?page=logout">deconnection</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="?page=index">crééz cotre fiche de personnage</a>
+                        <a class="nav-link" href="?page=Create_Character_Sheet">crééz cotre fiche de personnage</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="?page=character_sheet">crééz cotre fiche de personnage</a>
                     </li>
 
                 <?php   }else { ?>
