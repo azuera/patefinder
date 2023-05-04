@@ -3,7 +3,7 @@
 
 use Model\CharacterSheet;
 
-$sqlCharacterSheet = "SELECT * FROM `character_sheet` WHERE character_sheet_id = 1";
+$sqlCharacterSheet = "SELECT * FROM `character_sheet` WHERE characterSheetId = 5";
 
 $statementCharacterSheet = $connection->query($sqlCharacterSheet);
 
