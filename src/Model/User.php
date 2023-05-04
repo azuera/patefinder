@@ -4,31 +4,23 @@ namespace model;
 
 class User
 {
-    protected ?int $userr_id;
-    protected ?int $userr_role;
-    protected ?string $userr_name;
-    protected ?string $userr_email;
-    protected ?string $userr_password;
-
-    protected ?string $userr_profile_picture;
-
-    protected ?int $userr_gender;
-
+    protected ?int $userrId;
+    protected ?int $userrRole;
 
     /**
      * @return int|null
      */
     public function getUserrId(): ?int
     {
-        return $this->userr_id;
+        return $this->userrId;
     }
 
     /**
-     * @param int|null $userr_id
+     * @param int|null $userrId
      */
-    public function setUserrId(?int $userr_id): void
+    public function setUserrId(?int $userrId): void
     {
-        $this->userr_id = $userr_id;
+        $this->userrId = $userrId;
     }
 
     /**
@@ -36,15 +28,15 @@ class User
      */
     public function getUserrRole(): ?int
     {
-        return $this->userr_role;
+        return $this->userrRole;
     }
 
     /**
-     * @param int|null $userr_role
+     * @param int|null $userrRole
      */
-    public function setUserrRole(?int $userr_role): void
+    public function setUserrRole(?int $userrRole): void
     {
-        $this->userr_role = $userr_role;
+        $this->userrRole = $userrRole;
     }
 
     /**
@@ -52,15 +44,15 @@ class User
      */
     public function getUserrName(): ?string
     {
-        return $this->userr_name;
+        return $this->userrName;
     }
 
     /**
-     * @param string|null $userr_name
+     * @param string|null $userrName
      */
-    public function setUserrName(?string $userr_name): void
+    public function setUserrName(?string $userrName): void
     {
-        $this->userr_name = $userr_name;
+        $this->userrName = $userrName;
     }
 
     /**
@@ -68,15 +60,15 @@ class User
      */
     public function getUserrEmail(): ?string
     {
-        return $this->userr_email;
+        return $this->userrEmail;
     }
 
     /**
-     * @param string|null $userr_email
+     * @param string|null $userrEmail
      */
-    public function setUserrEmail(?string $userr_email): void
+    public function setUserrEmail(?string $userrEmail): void
     {
-        $this->userr_email = $userr_email;
+        $this->userrEmail = $userrEmail;
     }
 
     /**
@@ -84,15 +76,15 @@ class User
      */
     public function getUserrPassword(): ?string
     {
-        return $this->userr_password;
+        return $this->userrPassword;
     }
 
     /**
-     * @param string|null $userr_password
+     * @param string|null $userrPassword
      */
-    public function setUserrPassword(?string $userr_password): void
+    public function setUserrPassword(?string $userrPassword): void
     {
-        $this->userr_password = $userr_password;
+        $this->userrPassword = $userrPassword;
     }
 
     /**
@@ -100,15 +92,15 @@ class User
      */
     public function getUserrProfilePicture(): ?string
     {
-        return $this->userr_profile_picture;
+        return $this->userrProfilePicture;
     }
 
     /**
-     * @param string|null $userr_profile_picture
+     * @param string|null $userrProfilePicture
      */
-    public function setUserrProfilePicture(?string $userr_profile_picture): void
+    public function setUserrProfilePicture(?string $userrProfilePicture): void
     {
-        $this->userr_profile_picture = $userr_profile_picture;
+        $this->userrProfilePicture = $userrProfilePicture;
     }
 
     /**
@@ -116,16 +108,25 @@ class User
      */
     public function getUserrGender(): ?int
     {
-        return $this->userr_gender;
+        return $this->userrGender;
     }
 
     /**
-     * @param int|null $userr_gender
+     * @param int|null $userrGender
      */
-    public function setUserrGender(?int $userr_gender): void
+    public function setUserrGender(?int $userrGender): void
     {
-        $this->userr_gender = $userr_gender;
+        $this->userrGender = $userrGender;
     }
+    protected ?string $userrName;
+    protected ?string $userrEmail;
+    protected ?string $userrPassword;
+
+    protected ?string $userrProfilePicture;
+
+    protected ?int $userrGender;
+
+
 
 
 

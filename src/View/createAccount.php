@@ -1,7 +1,7 @@
 <?php
 var_dump($_POST);
 if(!empty($_POST)){
-$sqlCreateAccount='INSERT INTO userr (userr_role,userr_name, userr_email, userr_password,userr_profile_picture, userr_gender) 
+$sqlCreateAccount='INSERT INTO userr (userrRole,userrName, userrEmail, userrPassword,userrProfilePicture, userrGender) 
                     VALUES (:userr_role,:userr_name,:userr_email,:userr_password,:userr_profile_picture,:userr_gender)';
 $statementCreateAccount=$connection->prepare($sqlCreateAccount);
 $statementCreateAccount->bindValue(":userr_role",$_POST['role'],PDO::PARAM_STR);
