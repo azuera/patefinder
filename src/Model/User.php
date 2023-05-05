@@ -1,11 +1,18 @@
 <?php
 
-namespace model;
+namespace Model;
 
 class User
 {
     protected ?int $userrId;
     protected ?int $userrRole;
+    protected ?string $userrName;
+    protected ?string $userrEmail;
+    protected ?string $userrPassword;
+
+    protected ?string $userrProfilePicture;
+
+    protected ?int $userrGender;
 
     /**
      * @return int|null
@@ -118,13 +125,7 @@ class User
     {
         $this->userrGender = $userrGender;
     }
-    protected ?string $userrName;
-    protected ?string $userrEmail;
-    protected ?string $userrPassword;
 
-    protected ?string $userrProfilePicture;
-
-    protected ?int $userrGender;
 
 
 
