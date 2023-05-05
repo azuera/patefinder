@@ -1,10 +1,13 @@
 <?php
-if (!isset($_SESSION)) {
-    session_start();
-}
-var_dump($_SESSION);
-require_once 'db.inc.php';
+
+use Model\User;
+
 require_once 'autoload.php';
+session_start();
+
+
+
+require_once 'db.inc.php';
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -37,12 +40,12 @@ require_once 'autoload.php';
 
 
                 <?php
-                if (isset($_SESSION['email_username'])) {
+                if (!empty($_SESSION['user']) && $_SESSION['user'] instanceof User) {
                     ?>
 
                     <li class="nav-item">
                         <a class="nav-link" href="?page=login">
-                            <?php echo "welcome " . $_SESSION['email_username']; ?>
+                            <?php echo "bonjour ".$_SESSION['user']->getUserrName() ; ?>
                         </a>
                     </li>
                     <li class="nav-item">
@@ -52,7 +55,10 @@ require_once 'autoload.php';
                         <a class="nav-link" href="?page=createCharacterSheet">create your character sheet</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="?page=characterSheet">show your character sheet</a>
+                        <a class="nav-link" href="?page=createEquipement">créer cotre fiche d'équipement</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="?page=characterSheet">afficher cotre fiche de personnage</a>
                     </li>
 
                 <?php } else { ?>

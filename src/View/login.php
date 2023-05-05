@@ -5,16 +5,16 @@ use Model\User;
 
 var_dump($_POST);
 if (!empty($_POST)) {
-    $usermail = $_POST['email_username'];
+    $usermail = trim($_POST['email_username']);
     $sql = "SELECT * FROM userr WHERE userrEmail='$usermail' ";
     $statement = $connection->prepare($sql);
     $statement->setFetchMode(PDO::FETCH_CLASS, User::class);
     $statement->execute();
     $result = $statement->fetch();
     $hash = $result->getUserrPassword();
-    var_dump($hash);
+
     if (password_verify($_POST['password'],$hash)) {
-        $_SESSION['email_username'] = $_POST['email_username'];
+        $_SESSION['user'] = $result;
         echo "Le mot de passe est correct.";
         header('location:index.php?login=success');
     } else {
