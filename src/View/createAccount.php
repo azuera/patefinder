@@ -1,16 +1,16 @@
 <?php
 var_dump($_POST);
-if(!empty($_POST)){
-$sqlCreateAccount='INSERT INTO userr (userrRole,userrName, userrEmail, userrPassword,userrProfilePicture, userrGender) 
-                    VALUES (:userr_role,:userr_name,:userr_email,:userr_password,:userr_profile_picture,:userr_gender)';
-$statementCreateAccount=$connection->prepare($sqlCreateAccount);
-$statementCreateAccount->bindValue(":userr_role",$_POST['role'],PDO::PARAM_STR);
-$statementCreateAccount->bindValue(":userr_name",$_POST['pseudo'],PDO::PARAM_STR);
-$statementCreateAccount->bindValue(":userr_email",$_POST['email'],PDO::PARAM_STR);
-$statementCreateAccount->bindValue(":userr_password",password_hash($_POST['password'],PASSWORD_BCRYPT),PDO::PARAM_STR);
-$statementCreateAccount->bindValue(":userr_profile_picture",'https://picsum.photos/200',PDO::PARAM_STR);
-$statementCreateAccount->bindValue(":userr_gender",$_POST['genre'],PDO::PARAM_STR);
-$statementCreateAccount->execute();
+if (!empty($_POST)) {
+    $sqlCreateAccount = 'INSERT INTO userr (userrRole, userrName, userrEmail, userrPassword, userrProfilePicture, userrGender) 
+                    VALUES (:userrRole, :userrName, :userrEmail, :userrPassword, :userrProfilePicture, :userrGender)';
+    $statementCreateAccount = $connection->prepare($sqlCreateAccount);
+    $statementCreateAccount->bindValue(":userrRole", $_POST['role'], PDO::PARAM_INT);
+    $statementCreateAccount->bindValue(":userrName", $_POST['pseudo'], PDO::PARAM_STR);
+    $statementCreateAccount->bindValue(":userrEmail", $_POST['email'], PDO::PARAM_STR);
+    $statementCreateAccount->bindValue(":userrPassword", password_hash($_POST['password'], PASSWORD_BCRYPT), PDO::PARAM_STR);
+    $statementCreateAccount->bindValue(":userrProfilePicture", 'https://picsum.photos/200', PDO::PARAM_STR);
+    $statementCreateAccount->bindValue(":userrGender", $_POST['genre'], PDO::PARAM_INT);
+    $statementCreateAccount->execute();
 
 }
 

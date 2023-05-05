@@ -42,25 +42,25 @@ require_once 'autoload.php';
 
                     <li class="nav-item">
                         <a class="nav-link" href="?page=login">
-                            <?php echo "bonjour " . $_SESSION['email_username']; ?>
+                            <?php echo "welcome " . $_SESSION['email_username']; ?>
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="?page=logout">deconnection</a>
+                        <a class="nav-link" href="?page=logout">logout</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="?page=createCharacterSheet">crééz cotre fiche de personnage</a>
+                        <a class="nav-link" href="?page=createCharacterSheet">create your character sheet</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="?page=characterSheet">crééz cotre fiche de personnage</a>
+                        <a class="nav-link" href="?page=characterSheet">show your character sheet</a>
                     </li>
 
                 <?php } else { ?>
                     <li class="nav-item">
-                        <a class="nav-link" href="?page=login">connection a vôtre compte</a>
+                        <a class="nav-link" href="?page=login">log in</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="?page=createAccount">creez votre compte ici</a>
+                        <a class="nav-link active" aria-current="page" href="?page=createAccount">sign in</a>
                     </li>
                 <?php } ?>
             </ul>

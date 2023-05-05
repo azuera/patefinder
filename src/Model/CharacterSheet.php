@@ -1,8 +1,10 @@
 <?php
 namespace Model;
+
 class CharacterSheet
 {
 
+    protected int $characterSheetId;
     protected string $characterSheetName;
     protected string $characterSheetRace;
     protected string $characterSheetClass;
@@ -18,6 +20,24 @@ class CharacterSheet
     protected int $characteristicIntelligence;
     protected int $characteristicWisdom;
     protected int $characteristicLuck;
+
+    /**
+     * @return 
+     */
+    public function getCharacterSheetId(): int
+    {
+        return $this->characterSheetId;
+    }
+
+    /**
+     * @param  $characterSheetId 
+     * @return self
+     */
+    public function setCharacterSheetId(int $characterSheetId): self
+    {
+        $this->characterSheetId = $characterSheetId;
+        return $this;
+    }
 
     public function getcharacterSheetName(): string
     {
