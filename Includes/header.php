@@ -45,7 +45,7 @@ require_once 'db.inc.php';
 
                     <li class="nav-item">
                         <a class="nav-link" href="?page=login">
-                            <?php echo "bonjour ".$_SESSION['user']->getUserrName() ; ?>
+                            <?php echo "bonjour " . $_SESSION['user']->getUserrName(); ?>
                         </a>
                     </li>
                     <li class="nav-item">
@@ -62,6 +62,9 @@ require_once 'db.inc.php';
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="?page=characterSheet">afficher cotre fiche de personnage</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="?page=characterSheetList">Afficher la liste des personnages</a>
                     </li>
 
                 <?php } else { ?>

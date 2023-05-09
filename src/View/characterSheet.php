@@ -4,23 +4,28 @@
 use Model\CharacterSheet;
 use Model\Equipement;
 
-$sqlCharacterSheet = "SELECT * FROM `character_sheet`";
+
+$id = intval($_GET['index']);
+
+
+$sqlCharacterSheet = "SELECT * FROM `character_sheet` WHERE characterSheetId = :characterSheetId";
 $statementCharacterSheet = $connection->prepare($sqlCharacterSheet);
+$statementCharacterSheet->bindValue(':characterSheetId', $id, PDO::PARAM_INT);
 $statementCharacterSheet->execute();
 $statementCharacterSheet->setFetchMode(PDO::FETCH_CLASS, CharacterSheet::class);
-$results = $statementCharacterSheet->fetchall();
+$results = $statementCharacterSheet->fetchAll();
 
-if(isset($_GET)){
-    $sqlEquipement="SELECT * FROM `equipement` 
+if (isset($_GET)) {
+    $sqlEquipement = "SELECT equipement.* FROM `equipement` 
     LEFT JOIN character_sheet ON character_sheet.characterSheetId = equipement.idCharacterSheet
     WHERE idCharacterSheet = characterSheetId ";
-    $statementSelectEquipement=$connection->query($sqlEquipement);
+    $statementSelectEquipement = $connection->query($sqlEquipement);
     $statementSelectEquipement->setFetchMode(PDO::FETCH_CLASS, Equipement::class);
-    $equipementResults = $statementSelectEquipement->fetchall();
+    $equipementResults = $statementSelectEquipement->fetchAll();
 }
 
 
-foreach ($results as  $result) {
+foreach ($results as $result) {
     if (isset($_SESSION['user'])) {
         ?>
         <section>
@@ -104,37 +109,44 @@ foreach ($results as  $result) {
                     <?php echo $result->getcharacteristicLuck() ?>
                 </p>
             </div>
-            <a  class="btn btn-primary" href="?page=createEquipement&index=<?= $result->getCharacterSheetId();?>">ajouter votre equipement</a>
+            <a class="btn btn-primary" href="?page=createEquipement&index=<?= $result->getCharacterSheetId(); ?>">ajouter votre
+                equipement</a>
         </section>
         <?php
     }
 
-   if(empty($equipementResults)){
-    ?>
-    <div>
-        <p>pas d'équipement</p>
-    </div>
-    <?php
-   }else{
-    foreach ($equipementResults as $equipementResult){
+    if (empty($equipementResults)) {
         ?>
-        <div class="d-flex">
-            <div class="card" style="width: 18rem;">
-                <img src="..." class="card-img-top" alt="...">
-                <div class="card-body">
-                    <h5 class="card-title"><?= $equipementResult->getEquipementName();?></h5>
-                    <p class="card-text">degats :<?=$equipementResult->getEquipementDamage();?></p>
-                    <p class="card-text">range :<?=$equipementResult->getEquipementRange();?></p>
-    
+        <div>
+            <p>pas d'équipement</p>
+        </div>
+        <?php
+    } else {
+        foreach ($equipementResults as $equipementResult) {
+            ?>
+            <div class="d-flex">
+                <div class="card" style="width: 18rem;">
+                    <img src="..." class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title">
+                            <?= $equipementResult->getEquipementName(); ?>
+                        </h5>
+                        <p class="card-text">degats :
+                            <?= $equipementResult->getEquipementDamage(); ?>
+                        </p>
+                        <p class="card-text">range :
+                            <?= $equipementResult->getEquipementRange(); ?>
+                        </p>
+
+                    </div>
                 </div>
             </div>
-        </div>
-    
-    
-    
-    <?php }
-   }
-   ?>
+
+
+
+        <?php }
+    }
+    ?>
 
     <?php
 }
