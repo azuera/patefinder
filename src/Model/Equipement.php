@@ -50,7 +50,7 @@ class Equipement
     /**
      * @return int|null
      */
-    public function getEquipementId(): ?int1
+    public function getEquipementId(): ?int
     {
         return $this->equipementId;
     }
