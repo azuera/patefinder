@@ -10,15 +10,16 @@ $statementCharacterSheet->execute();
 $statementCharacterSheet->setFetchMode(PDO::FETCH_CLASS, CharacterSheet::class);
 $results = $statementCharacterSheet->fetchall();
 
-$sqlEquipement="SELECT * FROM `equipement` 
-LEFT JOIN character_sheet ON character_sheet.characterSheetId = equipement.idCharacterSheet
-WHERE idCharacterSheet = characterSheetId ";
-$statementSelectEquipement=$connection->query($sqlEquipement);
-$statementSelectEquipement->setFetchMode(PDO::FETCH_CLASS, Equipement::class);
-$equipementResults = $statementSelectEquipement->fetchall();
+if(isset($_GET)){
+    $sqlEquipement="SELECT * FROM `equipement` 
+    LEFT JOIN character_sheet ON character_sheet.characterSheetId = equipement.idCharacterSheet
+    WHERE idCharacterSheet = characterSheetId ";
+    $statementSelectEquipement=$connection->query($sqlEquipement);
+    $statementSelectEquipement->setFetchMode(PDO::FETCH_CLASS, Equipement::class);
+    $equipementResults = $statementSelectEquipement->fetchall();
+}
 
-var_dump($results);
-var_dump($equipementResults);
+
 foreach ($results as  $result) {
     if (isset($_SESSION['user'])) {
         ?>
@@ -108,23 +109,32 @@ foreach ($results as  $result) {
         <?php
     }
 
-    foreach ($equipementResults as $equipementResult){
+   if(empty($equipementResults)){
     ?>
-    <div class="d-flex">
-        <div class="card" style="width: 18rem;">
-            <img src="..." class="card-img-top" alt="...">
-            <div class="card-body">
-                <h5 class="card-title"><?= $equipementResult->getEquipementName();?></h5>
-                <p class="card-text">degats :<?=$equipementResult->getEquipementDamage();?></p>
-                <p class="card-text">range :<?=$equipementResult->getEquipementRange();?></p>
-
+    <div>
+        <p>pas d'équipement</p>
+    </div>
+    <?php
+   }else{
+    foreach ($equipementResults as $equipementResult){
+        ?>
+        <div class="d-flex">
+            <div class="card" style="width: 18rem;">
+                <img src="..." class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title"><?= $equipementResult->getEquipementName();?></h5>
+                    <p class="card-text">degats :<?=$equipementResult->getEquipementDamage();?></p>
+                    <p class="card-text">range :<?=$equipementResult->getEquipementRange();?></p>
+    
+                </div>
             </div>
         </div>
-    </div>
-
-
-
-<?php } ?>
+    
+    
+    
+    <?php }
+   }
+   ?>
 
     <?php
 }
