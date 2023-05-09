@@ -2,27 +2,30 @@
 
 
 use Model\CharacterSheet;
+use Model\Equipement;
 
 $sqlCharacterSheet = "SELECT * FROM `character_sheet`";
-
-// $statementCharacterSheet = $connection->query($sqlCharacterSheet);
 $statementCharacterSheet = $connection->prepare($sqlCharacterSheet);
-// $statementCharacterSheet->bindValue(":characterSheetId", $characterSheetId, PDO::PARAM_INT);
 $statementCharacterSheet->execute();
-
 $statementCharacterSheet->setFetchMode(PDO::FETCH_CLASS, CharacterSheet::class);
+$results = $statementCharacterSheet->fetchall();
 
-$results = $statementCharacterSheet->fetchAll();
-
+$sqlEquipement="SELECT * FROM `equipement` 
+LEFT JOIN character_sheet ON character_sheet.characterSheetId = equipement.idCharacterSheet
+WHERE idCharacterSheet = characterSheetId ";
+$statementSelectEquipement=$connection->query($sqlEquipement);
+$statementSelectEquipement->setFetchMode(PDO::FETCH_CLASS, Equipement::class);
+$equipementResults = $statementSelectEquipement->fetchall();
 
 var_dump($results);
-foreach ($results as $key => $result) {
-    if (isset($_SESSION['email_username'])) {
+var_dump($equipementResults);
+foreach ($results as  $result) {
+    if (isset($_SESSION['user'])) {
         ?>
         <section>
             <div class="characterName">
                 <h2>Player's name :
-                    <?php echo $_SESSION['email_username'] ?>
+                    <?= $_SESSION['user']->getUserrName(); ?>
                 </h2>
             </div>
             <div class="characterName">
@@ -100,30 +103,28 @@ foreach ($results as $key => $result) {
                     <?php echo $result->getcharacteristicLuck() ?>
                 </p>
             </div>
+            <a  class="btn btn-primary" href="?page=createEquipement&index=<?= $result->getCharacterSheetId();?>">ajouter votre equipement</a>
         </section>
         <?php
     }
+
+    foreach ($equipementResults as $equipementResult){
     ?>
+    <div class="d-flex">
+        <div class="card" style="width: 18rem;">
+            <img src="..." class="card-img-top" alt="...">
+            <div class="card-body">
+                <h5 class="card-title"><?= $equipementResult->getEquipementName();?></h5>
+                <p class="card-text">degats :<?=$equipementResult->getEquipementDamage();?></p>
+                <p class="card-text">range :<?=$equipementResult->getEquipementRange();?></p>
 
-    <!--
-characterSheetRace
-characterSheetClass
-characterSheetStatus
-characteristicInitiative
-characteristicHpMax
-characteristicActualHp
-characteristicMpMax
-characteristicActualMp
-characteristicStrength
-characteristicDexterity
-characteristicStamina
-characteristicIntelligence
-characteristicWisdom
-characteristicLuck
-     -->
+            </div>
+        </div>
+    </div>
 
 
 
+<?php } ?>
 
     <?php
 }

@@ -8,6 +8,27 @@ class Equipement
     protected ?string $equipementName;
     protected ?int $equipementDamage;
     protected ?int $equipementRange;
+    protected ?int $idCharacterSheet;
+
+    /**
+     * @return int|null
+     */
+    public function getIdCharacterSheet(): ?int
+    {
+        return $this->idCharacterSheet;
+    }
+
+    /**
+     * @param int|null $idCharacterSheet
+     * @return Equipement
+     */
+    public function setIdCharacterSheet(?int $idCharacterSheet): Equipement
+    {
+        $this->idCharacterSheet = $idCharacterSheet;
+        return $this;
+    }
+
+
 
     public function __construct(array $data = []){
         if (isset($data['equipementName'])) {
@@ -23,12 +44,13 @@ class Equipement
             $this->setEquipementDamage($data['equipementDamage']);
         }
 
+
     }
 
     /**
      * @return int|null
      */
-    public function getEquipementId(): ?int
+    public function getEquipementId(): ?int1
     {
         return $this->equipementId;
     }

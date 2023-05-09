@@ -9,9 +9,7 @@ class User
     protected ?string $userrName;
     protected ?string $userrEmail;
     protected ?string $userrPassword;
-
     protected ?string $userrProfilePicture;
-
     protected ?int $userrGender;
 
     /**

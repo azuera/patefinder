@@ -130,37 +130,10 @@ if (!empty($_POST)) {
   <label for="characteristicLuck">Luck (max 20):</label>
   <input type="number" id="characteristicLuck" name="characteristicLuck" value="1" min="0" max="20" required>
 
-  <!-- <h2>Skills</h2>
-    
-      <label for="skill_name">Name:</label>
-      <input type="text" id="skill_name" name="skill_name" value="qsfdbqdb" required>
-    
-      <label for="skill_id">Associated Characteristic:</label>
-      <select id="skill_id" name="skill_id" required>
-        <option value=0>Strength</option>
-        <option value=1>Dexterity</option>
-        <option value=2>Stamina</option>
-        <option value=3>Intelligence</option>
-        <option value=4>Wisdom</option>
-        <option value=5>Luck</option>
-      </select> 
-    
-      <label for="skill_level">Skill's level</label>
-      <input type="number" id="skill_level" name="skill_level" value="1" min="0" max="5" required>
-    
-      <h2>Equipments</h2>
-
-      <label for="equipement_name">Name:</label>
-      <input type="text" id="equipement_name" name="equipement_name" value="qsfdbqdb" required>
-    
-      <label for="equipement_damage">Damage:</label>
-      <input type="number" id="equipement_damage" name="equipement_damage" value="1" min="0" required>
-    
-      <label for="equipement_range">Range:</label>
-      <input type="number" id="equipement_range" name="equipement_range" value="1" min="0" max="5" required>
-     -->
-  <br><br>
-  <input type="submit" value="Save">
+ 
+ 
+  
+  <button type="submit" class="btn btn-primary" href="?page=characterSheet">Submit</button>
 </form>
 
 <!-- <script>

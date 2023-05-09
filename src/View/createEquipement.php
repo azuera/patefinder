@@ -1,23 +1,28 @@
 <?php
 
 use model\Equipement;
+
 if(!empty($_POST)){
     $equipementName=trim($_POST['equipementName']);
     $equipementDamage=intval($_POST['equipementDamage']);
     $equipementRange=intval($_POST['equipementRange']);
+    $idCharacterSheet=intval($_GET['index']);
 
     var_dump($_POST);
+    var_dump($_GET);
     $equipement=(new Equipement($_POST))
         ->setEquipementName($equipementName)
         ->setEquipementDamage($equipementDamage)
-        ->setEquipementRange($equipementRange);
+        ->setEquipementRange($equipementRange)
+        ->setCharacterSheetId($idCharacterSheet);
 
-    $sql ="INSERT INTO `equipement`( `equipementName`, `equipementDamage`, `equipementRange`) 
-        VALUES (:equipementName,:equipementDamage,:equipementRange)";
+    $sql ="INSERT INTO `equipement`( `equipementName`, `equipementDamage`, `equipementRange`, `idCharacterSheet`)
+        VALUES (:equipementName,:equipementDamage,:equipementRange,:idCharacterSheet)";
     $statementInsertEquipement=$connection->prepare($sql);
     $statementInsertEquipement->bindValue(':equipementName',$equipementName,PDO::PARAM_STR);
     $statementInsertEquipement->bindValue(':equipementDamage',$equipementDamage,PDO::PARAM_INT);
     $statementInsertEquipement->bindValue(':equipementRange',$equipementRange,PDO::PARAM_INT);
+    $statementInsertEquipement->bindValue(':idCharacterSheet',$idCharacterSheet,PDO::PARAM_INT);
     $statementInsertEquipement->execute();
 
 }
