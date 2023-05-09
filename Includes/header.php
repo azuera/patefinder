@@ -5,7 +5,7 @@ use Model\User;
 require_once 'autoload.php';
 session_start();
 
-
+var_dump($_SESSION);
 
 require_once 'db.inc.php';
 ?>
@@ -56,6 +56,9 @@ require_once 'db.inc.php';
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="?page=createEquipement">créer cotre fiche d'équipement</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="?page=selectEquipement">afficher votre fiche d'équipement</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="?page=characterSheet">afficher cotre fiche de personnage</a>

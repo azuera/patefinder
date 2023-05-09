@@ -21,6 +21,10 @@ class CharacterSheet
     protected int $characteristicWisdom;
     protected int $characteristicLuck;
 
+    
+
+    
+
     /**
      * @return 
      */
