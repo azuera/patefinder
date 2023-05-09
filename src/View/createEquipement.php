@@ -14,7 +14,7 @@ if(!empty($_POST)){
         ->setEquipementName($equipementName)
         ->setEquipementDamage($equipementDamage)
         ->setEquipementRange($equipementRange)
-        ->setCharacterSheetId($idCharacterSheet);
+        ->setIdCharacterSheet($idCharacterSheet);
 
     $sql ="INSERT INTO `equipement`( `equipementName`, `equipementDamage`, `equipementRange`, `idCharacterSheet`)
         VALUES (:equipementName,:equipementDamage,:equipementRange,:idCharacterSheet)";
