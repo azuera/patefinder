@@ -22,10 +22,7 @@ if (isset($_GET)) {
     WHERE idCharacterSheet = characterSheetId ";
     $statementSelectEquipement = $connection->query($sqlEquipement);
     $statementSelectEquipement->setFetchMode(PDO::FETCH_CLASS, Equipement::class);
-<<<<<<< Updated upstream
     $equipementResults = $statementSelectEquipement->fetchAll();
-=======
-    $equipementResults = $statementSelectEquipement->fetchall();
 
 
     $sqlSkill = "SELECT skill.* FROM `skill` 
@@ -34,7 +31,6 @@ if (isset($_GET)) {
     $statementSelectSkill = $connection->query($sqlSkill);
     $statementSelectSkill->setFetchMode(PDO::FETCH_CLASS, Skill::class);
     $skillResults = $statementSelectSkill->fetchall();
->>>>>>> Stashed changes
 }
 
 
@@ -122,23 +118,17 @@ foreach ($results as $result) {
                     <?php echo $result->getcharacteristicLuck() ?>
                 </p>
             </div>
-<<<<<<< Updated upstream
             <a class="btn btn-primary" href="?page=createEquipement&index=<?= $result->getCharacterSheetId(); ?>">ajouter votre
                 equipement</a>
-=======
->>>>>>> Stashed changes
         </section>
         <?php
     }
 
-<<<<<<< Updated upstream
-=======
     // Affichage Equipment
     ?>
     <a class="btn btn-primary" href="?page=createEquipement&index=<?= $result->getCharacterSheetId(); ?>">ajouter un
         equipement</a>
     <?php
->>>>>>> Stashed changes
     if (empty($equipementResults)) {
         ?>
         <div>
@@ -165,18 +155,8 @@ foreach ($results as $result) {
                     </div>
                 </div>
             </div>
-<<<<<<< Updated upstream
-
-
-
         <?php }
     }
-    ?>
-=======
-        <?php }
-    }
->>>>>>> Stashed changes
-
     // Affichage Skill
     ?>
     <a class="btn btn-primary" href="?page=createSkill&index=<?= $result->getCharacterSheetId(); ?>">ajouter un
