@@ -21,7 +21,7 @@ class Skill
             $this->setSkillLevel($data["skillLevel"]);
         }
         if (!empty($data["skillId"])) {
-            $this->setSkillLevel($data["skillId"]);
+            $this->setSkillId($data["skillId"]);
         }
     }
 

@@ -13,8 +13,12 @@ $results = $statementSkill->fetchAll();
 
 
 var_dump($results);
+// 
+// 
+// Mettre un bouton pour créé 
+// 
 foreach ($results as $key => $result) {
-    if (isset($_SESSION['email_username'])) {
+    if (isset($_SESSION['user'])) {
         ?>
         <section>
             <div class="characterName">
@@ -33,8 +37,6 @@ foreach ($results as $key => $result) {
                 </p>
             </div>
         </section>
-        <a href="?pages=charactereSheetCart&index=<?= $result->getEquipementId() ?>" class="btn btn-primary">ajouter a votre
-            feuille de perso</a>
         <?php
     }
 }
