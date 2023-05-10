@@ -9,14 +9,19 @@ class Skill
 
     protected ?int $skillLevel;
 
+    protected ?int $idCharacterSheet;
+
     public function __construct(array $data = [])
     {
         // $this->setSkillId($data[$skillId])
         if (!empty($data["skillName"])) {
             $this->setSkillName($data["skillName"]);
         }
-        if (!empty($data["skillName"])) {
+        if (!empty($data["skillLevel"])) {
             $this->setSkillLevel($data["skillLevel"]);
+        }
+        if (!empty($data["skillId"])) {
+            $this->setSkillId($data["skillId"]);
         }
     }
 
@@ -71,6 +76,24 @@ class Skill
     public function setSkillLevel(?int $skillLevel): self
     {
         $this->skillLevel = $skillLevel;
+        return $this;
+    }
+
+    /**
+     * @return 
+     */
+    public function getIdCharacterSheet(): ?int
+    {
+        return $this->idCharacterSheet;
+    }
+
+    /**
+     * @param  $idCharacterSheet 
+     * @return self
+     */
+    public function setIdCharacterSheet(?int $idCharacterSheet): self
+    {
+        $this->idCharacterSheet = $idCharacterSheet;
         return $this;
     }
 }
