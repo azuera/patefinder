@@ -3,6 +3,7 @@
 
 use Model\CharacterSheet;
 use Model\Equipement;
+use Model\Skill;
 
 
 $id = intval($_GET['index']);
@@ -21,7 +22,19 @@ if (isset($_GET)) {
     WHERE idCharacterSheet = characterSheetId ";
     $statementSelectEquipement = $connection->query($sqlEquipement);
     $statementSelectEquipement->setFetchMode(PDO::FETCH_CLASS, Equipement::class);
+<<<<<<< Updated upstream
     $equipementResults = $statementSelectEquipement->fetchAll();
+=======
+    $equipementResults = $statementSelectEquipement->fetchall();
+
+
+    $sqlSkill = "SELECT skill.* FROM `skill` 
+    LEFT JOIN character_sheet ON character_sheet.characterSheetId = skill.idCharacterSheet
+    WHERE idCharacterSheet = characterSheetId ";
+    $statementSelectSkill = $connection->query($sqlSkill);
+    $statementSelectSkill->setFetchMode(PDO::FETCH_CLASS, Skill::class);
+    $skillResults = $statementSelectSkill->fetchall();
+>>>>>>> Stashed changes
 }
 
 
@@ -109,12 +122,23 @@ foreach ($results as $result) {
                     <?php echo $result->getcharacteristicLuck() ?>
                 </p>
             </div>
+<<<<<<< Updated upstream
             <a class="btn btn-primary" href="?page=createEquipement&index=<?= $result->getCharacterSheetId(); ?>">ajouter votre
                 equipement</a>
+=======
+>>>>>>> Stashed changes
         </section>
         <?php
     }
 
+<<<<<<< Updated upstream
+=======
+    // Affichage Equipment
+    ?>
+    <a class="btn btn-primary" href="?page=createEquipement&index=<?= $result->getCharacterSheetId(); ?>">ajouter un
+        equipement</a>
+    <?php
+>>>>>>> Stashed changes
     if (empty($equipementResults)) {
         ?>
         <div>
@@ -141,13 +165,47 @@ foreach ($results as $result) {
                     </div>
                 </div>
             </div>
+<<<<<<< Updated upstream
 
 
 
         <?php }
     }
     ?>
+=======
+        <?php }
+    }
+>>>>>>> Stashed changes
 
+    // Affichage Skill
+    ?>
+    <a class="btn btn-primary" href="?page=createSkill&index=<?= $result->getCharacterSheetId(); ?>">ajouter un
+        skill</a>
     <?php
+    if (empty($skillResults)) {
+        ?>
+        <div>
+            <p>pas de skill</p>
+        </div>
+        <?php
+    } else {
+        foreach ($skillResults as $skillResult) {
+            ?>
+            <div class="d-flex">
+                <div class="card" style="width: 18rem;">
+                    <img src="..." class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title">
+                            <?= $skillResult->getSkillName(); ?>
+                        </h5>
+                        <p class="card-text">Niveau :
+                            <?= $skillResult->getSkillLevel(); ?>
+                        </p>
+
+                    </div>
+                </div>
+            </div>
+        <?php }
+    }
 }
 ?>

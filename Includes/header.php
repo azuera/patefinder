@@ -64,6 +64,9 @@ require_once 'db.inc.php';
                         <a class="nav-link" href="?page=characterSheet">afficher cotre fiche de personnage</a>
                     </li>
                     <li class="nav-item">
+                        <a class="nav-link" href="?page=createSkill">créer cotre fiche de Skill</a>
+                    </li>
+                    <li class="nav-item">
                         <a class="nav-link" href="?page=characterSheetList">Afficher la liste des personnages</a>
                     </li>
 
