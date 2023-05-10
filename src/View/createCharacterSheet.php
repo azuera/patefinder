@@ -2,7 +2,6 @@
 if (!empty($_POST)) {
 
   var_dump($_POST);
-
   $characterSheetName = trim($_POST["characterSheetName"]);
   $characterSheetClass = trim($_POST["characterSheetClass"]);
   $characterSheetRace = trim($_POST["characterSheetRace"]);
@@ -91,16 +90,16 @@ if (!empty($_POST)) {
 ?>
 
 <form method="post" action="">
-  <label for="characterSheetName">Character's Name:</label>
-  <input type="text" id="characterSheetName" name="characterSheetName" value="qsfdbqdb" required>
+  <label for="characterSheetName">Nom du personnage :</label>
+  <input type="text" id="characterSheetName" name="characterSheetName" value="Vindo" required>
 
-  <label for="characterSheetClass">Character's Class:</label>
-  <input type="text" id="characterSheetClass" name="characterSheetClass" value="qsfdbqdb" required>
+  <label for="characterSheetClass">Classe du personnage :</label>
+  <input type="text" id="characterSheetClass" name="characterSheetClass" value="Mage" required>
 
-  <label for="characterSheetRace">Character's Race:</label>
-  <input type="text" id="characterSheetRace" name="characterSheetRace" value="qsfdbqdb" required>
+  <label for="characterSheetRace">Race du personnage :</label>
+  <input type="text" id="characterSheetRace" name="characterSheetRace" value="Mort-vivant" required>
 
-  <label for="characterSheetStatus">Character's Status:</label>
+  <label for="characterSheetStatus">Statut du personnage :</label>
   <select name="characterSheetStatus" id="characterSheetStatus">
     <option value=0>Ally</option>
     <option value=1>Enemy</option>
@@ -148,7 +147,8 @@ if (!empty($_POST)) {
 
 
 
-  <button type="submit" class="btn btn-primary" href="?page=characterSheet">Submit</button>
+  <button type="submit" class="btn btn-primary"
+    href="?page=characterSheet&UserIndex=<?= $_SESSION['user']->getUserrId() ?>">Submit</button>
 </form>
 
 <!-- <script>

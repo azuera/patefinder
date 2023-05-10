@@ -21,6 +21,7 @@ class CharacterSheet
     protected int $characteristicWisdom;
     protected int $characteristicLuck;
     protected ?int $gameId = null;
+    protected ?int $userrId = null;
 
 
 
@@ -224,6 +225,24 @@ class CharacterSheet
     public function setGameId(?int $gameId): self
     {
         $this->gameId = $gameId;
+        return $this;
+    }
+
+    /**
+     * @return 
+     */
+    public function getUserrId(): ?int
+    {
+        return $this->userrId;
+    }
+
+    /**
+     * @param  $userrId 
+     * @return self
+     */
+    public function setUserrId(?int $userrId): self
+    {
+        $this->userrId = $userrId;
         return $this;
     }
 }

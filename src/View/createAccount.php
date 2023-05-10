@@ -12,6 +12,8 @@ if (!empty($_POST)) {
     $statementCreateAccount->bindValue(":userrGender", $_POST['genre'], PDO::PARAM_INT);
     $statementCreateAccount->execute();
 
+    header('Location: ?page=login');
+
 }
 
 ?>
