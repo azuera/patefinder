@@ -48,6 +48,21 @@ if (!empty($_POST)) {
   $statement->bindValue(':characteristicWisdom', $characteristicWisdom, PDO::PARAM_INT);
   $statement->bindValue(':characteristicLuck', $characteristicLuck, PDO::PARAM_INT);
   $statement->execute();
+  $id = $connection->lastInsertId();
+
+  $sqlInsertCharacterSheetUser = "INSERT INTO `charactersheetuser` (`userrId`,`characterSheetId`) VALUES (:userrId, :characterSheetId)";
+  $statementInsertCharacterSheetUser = $connection->prepare($sqlInsertCharacterSheetUser);
+  $statementInsertCharacterSheetUser->bindValue(':userrId', $_SESSION['user']->getUserrId(), PDO::PARAM_INT);
+  $statementInsertCharacterSheetUser->bindValue(':characterSheetId', $id, PDO::PARAM_INT);
+  $statementInsertCharacterSheetUser->execute();
+
+
+
+
+  // SELECT *
+// FROM character_sheet
+// LEFT JOIN charactersheetuser ON character_sheet.characterSheetId = charactersheetuser.characterSheetId
+// LEFT JOIN userr ON charactersheetuser.userrId = userr.userrId;
 
 
 
@@ -130,9 +145,9 @@ if (!empty($_POST)) {
   <label for="characteristicLuck">Luck (max 20):</label>
   <input type="number" id="characteristicLuck" name="characteristicLuck" value="1" min="0" max="20" required>
 
- 
- 
-  
+
+
+
   <button type="submit" class="btn btn-primary" href="?page=characterSheet">Submit</button>
 </form>
 
