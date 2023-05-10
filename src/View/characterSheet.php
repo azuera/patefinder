@@ -118,8 +118,7 @@ foreach ($results as $result) {
                     <?php echo $result->getcharacteristicLuck() ?>
                 </p>
             </div>
-            <a class="btn btn-primary" href="?page=createEquipement&index=<?= $result->getCharacterSheetId(); ?>">ajouter votre
-                equipement</a>
+            <a class="btn btn-primary" href="?page=createEquipement&index=<?= $result->getCharacterSheetId(); ?>">ajouter votre equipement</a>
         </section>
         <?php
     }
