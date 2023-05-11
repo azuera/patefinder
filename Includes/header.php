@@ -52,21 +52,6 @@ require_once 'db.inc.php';
                         <a class="nav-link" href="?page=logout">logout</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="?page=createCharacterSheet">create your character sheet</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="?page=createEquipement">créer cotre fiche d'équipement</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="?page=selectEquipement">afficher votre fiche d'équipement</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="?page=characterSheet">afficher cotre fiche de personnage</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="?page=createSkill">créer cotre fiche de Skill</a>
-                    </li>
-                    <li class="nav-item">
                         <a class="nav-link" href="?page=characterSheetList">Afficher la liste des personnages</a>
                     </li>
 

@@ -12,6 +12,9 @@ $statementCharacterSheet->setFetchMode(PDO::FETCH_CLASS, CharacterSheet::class);
 $results = $statementCharacterSheet->fetchAll();
 
 
+?>
+<a class="btn btn-primary" href="?page=createCharacterSheet"> Créer votre fiche de personnage</a>
+<?php
 
 
 foreach ($results as $result) {

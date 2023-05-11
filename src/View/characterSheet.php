@@ -4,9 +4,22 @@
 use Model\CharacterSheet;
 use Model\Equipement;
 use Model\Skill;
+use Model\User;
+
+// use Model\User;
 
 
 $id = intval($_GET['index']);
+
+$sqlCharacterSheet = "SELECT  `userr`.* FROM `userr`
+LEFT JOIN charactersheetuser ON charactersheetuser.userrId = userr.userrId
+LEFT JOIN character_sheet ON character_sheet.characterSheetId = charactersheetuser.characterSheetId
+WHERE character_sheet.characterSheetId = :userName;";
+$statementCharacterSheet = $connection->prepare($sqlCharacterSheet);
+$statementCharacterSheet->bindValue(':userName', $id, PDO::PARAM_INT);
+$statementCharacterSheet->execute();
+$statementCharacterSheet->setFetchMode(PDO::FETCH_CLASS, User::class);
+$resultsUser = $statementCharacterSheet->fetchAll();
 
 
 $sqlCharacterSheet = "SELECT * FROM `character_sheet` WHERE characterSheetId = :characterSheetId";
@@ -17,20 +30,27 @@ $statementCharacterSheet->setFetchMode(PDO::FETCH_CLASS, CharacterSheet::class);
 $results = $statementCharacterSheet->fetchAll();
 
 if (isset($_GET)) {
-    $sqlEquipement = "SELECT equipement.* FROM `equipement` 
+    $sqlEquipement = "SELECT equipement.* FROM `equipement`
     LEFT JOIN character_sheet ON character_sheet.characterSheetId = equipement.idCharacterSheet
-    WHERE idCharacterSheet = characterSheetId ";
-    $statementSelectEquipement = $connection->query($sqlEquipement);
+    WHERE idCharacterSheet = :characterSheetId ";
+    $statementSelectEquipement = $connection->prepare($sqlEquipement);
+    $statementSelectEquipement->bindValue(':characterSheetId', $id, PDO::PARAM_INT);
+    $statementSelectEquipement->execute();
+
     $statementSelectEquipement->setFetchMode(PDO::FETCH_CLASS, Equipement::class);
     $equipementResults = $statementSelectEquipement->fetchAll();
 
 
     $sqlSkill = "SELECT skill.* FROM `skill` 
     LEFT JOIN character_sheet ON character_sheet.characterSheetId = skill.idCharacterSheet
-    WHERE idCharacterSheet = characterSheetId ";
-    $statementSelectSkill = $connection->query($sqlSkill);
+    WHERE idCharacterSheet = :characterSheetId ";
+
+    $statementSelectSkill = $connection->prepare($sqlSkill);
+    $statementSelectSkill->bindValue(':characterSheetId', $id, PDO::PARAM_INT);
+    $statementSelectSkill->execute();
+
     $statementSelectSkill->setFetchMode(PDO::FETCH_CLASS, Skill::class);
-    $skillResults = $statementSelectSkill->fetchall();
+    $skillResults = $statementSelectSkill->fetchAll();
 }
 
 
@@ -40,7 +60,9 @@ foreach ($results as $result) {
         <section>
             <div class="characterName">
                 <h2>Nom du joueur :
-                    <?= $_SESSION['user']->getUserrName(); ?>
+                    <?php foreach ($resultsUser as $resultUser) {
+                        echo $resultUser->getUserrName();
+                    } ?>
                 </h2>
             </div>
             <div class="characterName">

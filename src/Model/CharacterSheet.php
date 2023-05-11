@@ -22,6 +22,12 @@ class CharacterSheet
     protected int $characteristicLuck;
     protected ?int $gameId = null;
     protected ?int $userrId = null;
+    // protected ?string $userrName = null;
+    // protected ?int $userrRole = null;
+    // protected ?string $userrPassword = null;
+    // protected ?string $userrProfilePicture = null;
+    // protected ?string $userrGender = null;
+    // protected ?string $userrEmail = null;
 
 
 

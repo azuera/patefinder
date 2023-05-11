@@ -19,13 +19,6 @@ if (!empty($_POST)) {
   $characteristicWisdom = intval($_POST["characteristicWisdom"]);
   $characteristicLuck = intval($_POST["characteristicLuck"]);
 
-  // $skill_name = $_POST["skill_name"];
-  // $Skills_charac = $_POST["Skills_charac"];
-  // $skill_level = $_POST["skill_level"];
-
-  // $equipement_name = $_POST["equipement_name"];
-  // $equipement_damage = $_POST["equipement_damage"];
-  // $equipement_range = $_POST["equipement_range"];
 
 
 
@@ -55,35 +48,8 @@ if (!empty($_POST)) {
   $statementInsertCharacterSheetUser->bindValue(':characterSheetId', $id, PDO::PARAM_INT);
   $statementInsertCharacterSheetUser->execute();
 
+  header("Location: ?page=characterSheet&index=$id");
 
-
-
-  // SELECT *
-// FROM character_sheet
-// LEFT JOIN charactersheetuser ON character_sheet.characterSheetId = charactersheetuser.characterSheetId
-// LEFT JOIN userr ON charactersheetuser.userrId = userr.userrId;
-
-
-
-
-
-
-  // $sqlInsertSkill = "INSERT INTO skill (skill_name, skill_level) VALUES (:skill_name, :skill_level)";
-
-  // $statementInsertSkill = $connection ->prepare($sqlInsertSkill);
-  // $statementInsertSkill->bindValue(':skill_name', $skill_name, PDO::PARAM_STR);
-  // $statementInsertSkill->bindValue(':skill_level', $skill_level, PDO::PARAM_INT);
-  // $statementInsertSkill->execute();
-
-  // $sqlInsertEquip = "INSERT INTO `equipement` (`equipement_id`, `equipement_name`, `equipement_damage`, `equipement_range`) VALUES (:equipement_name, :equipement_damage, :equipement_range)";
-
-  // $statementInsertEquip = $connection ->prepare($sqlInsertEquip);
-
-  // $statementInsertEquip->bindValue(':equipement_name', $equipement_name, PDO::PARAM_STR);
-  // $statementInsertEquip->bindValue(':equipement_damage', $equipement_damage, PDO::PARAM_INT);
-  // $statementInsertEquip->bindValue(':equipement_range', $equipement_range, PDO::PARAM_INT);
-
-  // $statementInsertEquip->execute();
 }
 
 
@@ -147,8 +113,7 @@ if (!empty($_POST)) {
 
 
 
-  <button type="submit" class="btn btn-primary"
-    href="?page=characterSheet&UserIndex=<?= $_SESSION['user']->getUserrId() ?>">Submit</button>
+  <button type="submit" class="btn btn-primary">Submit</button>
 </form>
 
 <!-- <script>

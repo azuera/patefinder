@@ -3,6 +3,8 @@
 use model\Equipement;
 
 if (!empty($_POST)) {
+    $id = $_GET['index'];
+
     $equipementName = trim($_POST['equipementName']);
     $equipementDamage = intval($_POST['equipementDamage']);
     $equipementRange = intval($_POST['equipementRange']);
@@ -24,6 +26,9 @@ if (!empty($_POST)) {
     $statementInsertEquipement->bindValue(':equipementRange', $equipementRange, PDO::PARAM_INT);
     $statementInsertEquipement->bindValue(':idCharacterSheet', $idCharacterSheet, PDO::PARAM_INT);
     $statementInsertEquipement->execute();
+
+    header("Location:?page=characterSheet&index=$id");
+    // header("Location:?page=characterSheet&equipement=success&index='$id'");
 
 }
 ?>
