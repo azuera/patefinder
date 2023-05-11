@@ -4,11 +4,11 @@ namespace Model;
 
 class Equipement
 {
-    protected ?int $equipementId;
+    protected ?int $equipementId = null;
     protected ?string $equipementName;
     protected ?int $equipementDamage;
     protected ?int $equipementRange;
-    protected ?int $idCharacterSheet;
+    protected ?int $idCharacterSheet = null;
 
     /**
      * @return int|null
@@ -97,7 +97,10 @@ class Equipement
      */
     public function setEquipementDamage(?int $equipementDamage): Equipement
     {
-        $this->equipementDamage = $equipementDamage;
+        if($equipementDamage >= 0) {
+            
+            $this->equipementDamage = $equipementDamage;
+        }
         return $this;
     }
 
