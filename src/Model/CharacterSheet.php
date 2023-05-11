@@ -21,6 +21,13 @@ class CharacterSheet
     protected int $characteristicWisdom;
     protected int $characteristicLuck;
     protected ?int $gameId = null;
+    protected ?int $userrId = null;
+    // protected ?string $userrName = null;
+    // protected ?int $userrRole = null;
+    // protected ?string $userrPassword = null;
+    // protected ?string $userrProfilePicture = null;
+    // protected ?string $userrGender = null;
+    // protected ?string $userrEmail = null;
 
 
 
@@ -224,6 +231,24 @@ class CharacterSheet
     public function setGameId(?int $gameId): self
     {
         $this->gameId = $gameId;
+        return $this;
+    }
+
+    /**
+     * @return 
+     */
+    public function getUserrId(): ?int
+    {
+        return $this->userrId;
+    }
+
+    /**
+     * @param  $userrId 
+     * @return self
+     */
+    public function setUserrId(?int $userrId): self
+    {
+        $this->userrId = $userrId;
         return $this;
     }
 }

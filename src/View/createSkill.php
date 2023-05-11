@@ -3,6 +3,9 @@
 use Model\Skill;
 
 if (!empty($_POST)) {
+
+    $id = $_GET['index'];
+
     $skillName = trim($_POST["skillName"]);
     $skillLevel = intval($_POST['skillLevel']);
     $idCharacterSheet = intval($_GET['index']);
@@ -22,6 +25,8 @@ if (!empty($_POST)) {
     $statementInsertSkill->bindValue(":skillLevel", $skillLevel, PDO::PARAM_INT);
     $statementInsertSkill->bindValue(':idCharacterSheet', $idCharacterSheet, PDO::PARAM_INT);
     $statementInsertSkill->execute();
+
+    header("Location:?page=characterSheet&index=$id");
 }
 ?>
 
@@ -43,6 +48,6 @@ if (!empty($_POST)) {
     <label for="skillLevel">Niveau de la compétence :</label>
     <input type="number" id="skillLevel" name="skillLevel" min="0" max="5" required>
 
-    <button type="submit">Envoyer</button>
+    <button class="btn btn-primary" type="submit">Envoyer</button>
 
 </form>

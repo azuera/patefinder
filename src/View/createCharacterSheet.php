@@ -2,7 +2,6 @@
 if (!empty($_POST)) {
 
   var_dump($_POST);
-
   $characterSheetName = trim($_POST["characterSheetName"]);
   $characterSheetClass = trim($_POST["characterSheetClass"]);
   $characterSheetRace = trim($_POST["characterSheetRace"]);
@@ -20,13 +19,6 @@ if (!empty($_POST)) {
   $characteristicWisdom = intval($_POST["characteristicWisdom"]);
   $characteristicLuck = intval($_POST["characteristicLuck"]);
 
-  // $skill_name = $_POST["skill_name"];
-  // $Skills_charac = $_POST["Skills_charac"];
-  // $skill_level = $_POST["skill_level"];
-
-  // $equipement_name = $_POST["equipement_name"];
-  // $equipement_damage = $_POST["equipement_damage"];
-  // $equipement_range = $_POST["equipement_range"];
 
 
 
@@ -56,51 +48,24 @@ if (!empty($_POST)) {
   $statementInsertCharacterSheetUser->bindValue(':characterSheetId', $id, PDO::PARAM_INT);
   $statementInsertCharacterSheetUser->execute();
 
+  header("Location: ?page=characterSheet&index=$id");
 
-
-
-  // SELECT *
-// FROM character_sheet
-// LEFT JOIN charactersheetuser ON character_sheet.characterSheetId = charactersheetuser.characterSheetId
-// LEFT JOIN userr ON charactersheetuser.userrId = userr.userrId;
-
-
-
-
-
-
-  // $sqlInsertSkill = "INSERT INTO skill (skill_name, skill_level) VALUES (:skill_name, :skill_level)";
-
-  // $statementInsertSkill = $connection ->prepare($sqlInsertSkill);
-  // $statementInsertSkill->bindValue(':skill_name', $skill_name, PDO::PARAM_STR);
-  // $statementInsertSkill->bindValue(':skill_level', $skill_level, PDO::PARAM_INT);
-  // $statementInsertSkill->execute();
-
-  // $sqlInsertEquip = "INSERT INTO `equipement` (`equipement_id`, `equipement_name`, `equipement_damage`, `equipement_range`) VALUES (:equipement_name, :equipement_damage, :equipement_range)";
-
-  // $statementInsertEquip = $connection ->prepare($sqlInsertEquip);
-
-  // $statementInsertEquip->bindValue(':equipement_name', $equipement_name, PDO::PARAM_STR);
-  // $statementInsertEquip->bindValue(':equipement_damage', $equipement_damage, PDO::PARAM_INT);
-  // $statementInsertEquip->bindValue(':equipement_range', $equipement_range, PDO::PARAM_INT);
-
-  // $statementInsertEquip->execute();
 }
 
 
 ?>
 
 <form method="post" action="">
-  <label for="characterSheetName">Character's Name:</label>
-  <input type="text" id="characterSheetName" name="characterSheetName" value="qsfdbqdb" required>
+  <label for="characterSheetName">Nom du personnage :</label>
+  <input type="text" id="characterSheetName" name="characterSheetName" value="Vindo" required>
 
-  <label for="characterSheetClass">Character's Class:</label>
-  <input type="text" id="characterSheetClass" name="characterSheetClass" value="qsfdbqdb" required>
+  <label for="characterSheetClass">Classe du personnage :</label>
+  <input type="text" id="characterSheetClass" name="characterSheetClass" value="Mage" required>
 
-  <label for="characterSheetRace">Character's Race:</label>
-  <input type="text" id="characterSheetRace" name="characterSheetRace" value="qsfdbqdb" required>
+  <label for="characterSheetRace">Race du personnage :</label>
+  <input type="text" id="characterSheetRace" name="characterSheetRace" value="Mort-vivant" required>
 
-  <label for="characterSheetStatus">Character's Status:</label>
+  <label for="characterSheetStatus">Statut du personnage :</label>
   <select name="characterSheetStatus" id="characterSheetStatus">
     <option value=0>Ally</option>
     <option value=1>Enemy</option>
@@ -148,7 +113,7 @@ if (!empty($_POST)) {
 
 
 
-  <button type="submit" class="btn btn-primary" href="?page=characterSheet">Submit</button>
+  <button type="submit" class="btn btn-primary">Submit</button>
 </form>
 
 <!-- <script>

@@ -4,9 +4,22 @@
 use Model\CharacterSheet;
 use Model\Equipement;
 use Model\Skill;
+use Model\User;
+
+// use Model\User;
 
 
 $id = intval($_GET['index']);
+
+$sqlCharacterSheet = "SELECT  `userr`.* FROM `userr`
+LEFT JOIN charactersheetuser ON charactersheetuser.userrId = userr.userrId
+LEFT JOIN character_sheet ON character_sheet.characterSheetId = charactersheetuser.characterSheetId
+WHERE character_sheet.characterSheetId = :userName;";
+$statementCharacterSheet = $connection->prepare($sqlCharacterSheet);
+$statementCharacterSheet->bindValue(':userName', $id, PDO::PARAM_INT);
+$statementCharacterSheet->execute();
+$statementCharacterSheet->setFetchMode(PDO::FETCH_CLASS, User::class);
+$resultsUser = $statementCharacterSheet->fetchAll();
 
 
 $sqlCharacterSheet = "SELECT * FROM `character_sheet` WHERE characterSheetId = :characterSheetId";
@@ -17,20 +30,27 @@ $statementCharacterSheet->setFetchMode(PDO::FETCH_CLASS, CharacterSheet::class);
 $results = $statementCharacterSheet->fetchAll();
 
 if (isset($_GET)) {
-    $sqlEquipement = "SELECT equipement.* FROM `equipement` 
+    $sqlEquipement = "SELECT equipement.* FROM `equipement`
     LEFT JOIN character_sheet ON character_sheet.characterSheetId = equipement.idCharacterSheet
-    WHERE idCharacterSheet = characterSheetId ";
-    $statementSelectEquipement = $connection->query($sqlEquipement);
+    WHERE idCharacterSheet = :characterSheetId ";
+    $statementSelectEquipement = $connection->prepare($sqlEquipement);
+    $statementSelectEquipement->bindValue(':characterSheetId', $id, PDO::PARAM_INT);
+    $statementSelectEquipement->execute();
+
     $statementSelectEquipement->setFetchMode(PDO::FETCH_CLASS, Equipement::class);
     $equipementResults = $statementSelectEquipement->fetchAll();
 
 
     $sqlSkill = "SELECT skill.* FROM `skill` 
     LEFT JOIN character_sheet ON character_sheet.characterSheetId = skill.idCharacterSheet
-    WHERE idCharacterSheet = characterSheetId ";
-    $statementSelectSkill = $connection->query($sqlSkill);
+    WHERE idCharacterSheet = :characterSheetId ";
+
+    $statementSelectSkill = $connection->prepare($sqlSkill);
+    $statementSelectSkill->bindValue(':characterSheetId', $id, PDO::PARAM_INT);
+    $statementSelectSkill->execute();
+
     $statementSelectSkill->setFetchMode(PDO::FETCH_CLASS, Skill::class);
-    $skillResults = $statementSelectSkill->fetchall();
+    $skillResults = $statementSelectSkill->fetchAll();
 }
 
 
@@ -39,27 +59,29 @@ foreach ($results as $result) {
         ?>
         <section>
             <div class="characterName">
-                <h2>Player's name :
-                    <?= $_SESSION['user']->getUserrName(); ?>
+                <h2>Nom du joueur :
+                    <?php foreach ($resultsUser as $resultUser) {
+                        echo $resultUser->getUserrName();
+                    } ?>
                 </h2>
             </div>
             <div class="characterName">
-                <h3>Character's name :
+                <h3>Nom du personnage :
                     <?php echo $result->getcharacterSheetName() ?>
                 </h3>
             </div>
             <div class="characterName">
-                <p>Race:
+                <p>Classe du personnage :
                     <?php echo $result->getcharacterSheetRace() ?>
                 </p>
             </div>
             <div class="characterName">
-                <p>class :
+                <p>Race du personnage :
                     <?php echo $result->getcharacterSheetClass() ?>
                 </p>
             </div>
             <div class="characterName">
-                <p>Status :
+                <p>Statut du personnage :
                     <?php echo $result->getcharacterSheetStatus() ?>
                 </p>
             </div>
@@ -69,56 +91,55 @@ foreach ($results as $result) {
                 </p>
             </div>
             <div class="characterName">
-                <p>Hp max:
+                <p>Pv maximaux :
                     <?php echo $result->getcharacteristicHpMax() ?>
                 </p>
             </div>
             <div class="characterName">
-                <p>Actual Hp:
+                <p>Pv actuels :
                     <?php echo $result->getcharacteristicActualHp() ?>
                 </p>
             </div>
             <div class="characterName">
-                <p>Mp max:
+                <p>Pm maximaux :
                     <?php echo $result->getcharacteristicMpMax() ?>
                 </p>
             </div>
             <div class="characterName">
-                <p>Actual Mp:
+                <p>Pm actuels :
                     <?php echo $result->getcharacteristicActualMp() ?>
                 </p>
             </div>
             <div class="characterName">
-                <p>Strength:
+                <p>Force :
                     <?php echo $result->getcharacteristicStrength() ?>
                 </p>
             </div>
             <div class="characterName">
-                <p>Dexterity:
+                <p>Dextérité :
                     <?php echo $result->getcharacteristicDexterity() ?>
                 </p>
             </div>
             <div class="characterName">
-                <p>Stamina:
+                <p>Endurance :
                     <?php echo $result->getcharacteristicStamina() ?>
                 </p>
             </div>
             <div class="characterName">
-                <p>Intelligence:
+                <p>Intelligence :
                     <?php echo $result->getcharacteristicIntelligence() ?>
                 </p>
             </div>
             <div class="characterName">
-                <p>Wisdom:
+                <p>Sagesse :
                     <?php echo $result->getcharacteristicWisdom() ?>
                 </p>
             </div>
             <div class="characterName">
-                <p>Luck:
+                <p>Chance :
                     <?php echo $result->getcharacteristicLuck() ?>
                 </p>
             </div>
-            <a class="btn btn-primary" href="?page=createEquipement&index=<?= $result->getCharacterSheetId(); ?>">ajouter votre equipement</a>
         </section>
         <?php
     }
@@ -144,10 +165,10 @@ foreach ($results as $result) {
                         <h5 class="card-title">
                             <?= $equipementResult->getEquipementName(); ?>
                         </h5>
-                        <p class="card-text">degats :
+                        <p class="card-text">Dégâts :
                             <?= $equipementResult->getEquipementDamage(); ?>
                         </p>
-                        <p class="card-text">range :
+                        <p class="card-text">Portée :
                             <?= $equipementResult->getEquipementRange(); ?>
                         </p>
 

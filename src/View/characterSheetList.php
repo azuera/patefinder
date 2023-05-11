@@ -2,15 +2,19 @@
 
 use Model\CharacterSheet;
 
-var_dump($_POST);
-
-$sqlCharacterSheet = "SELECT * FROM `character_sheet`";
+$sqlCharacterSheet = "SELECT * FROM `character_sheet` 
+INNER JOIN charactersheetuser ON character_sheet.characterSheetId = charactersheetuser.characterSheetId
+WHERE userrId = :userId";
 $statementCharacterSheet = $connection->prepare($sqlCharacterSheet);
+$statementCharacterSheet->bindValue(':userId', $_SESSION['user']->getUserrId());
 $statementCharacterSheet->execute();
 $statementCharacterSheet->setFetchMode(PDO::FETCH_CLASS, CharacterSheet::class);
 $results = $statementCharacterSheet->fetchAll();
 
 
+?>
+<a class="btn btn-primary" href="?page=createCharacterSheet"> Créer votre fiche de personnage</a>
+<?php
 
 
 foreach ($results as $result) {
@@ -18,22 +22,22 @@ foreach ($results as $result) {
         ?>
         <section>
             <div class="characterName">
-                <h2>Player's name :
+                <h2>Nom du joueur :
                     <?= $_SESSION['user']->getUserrName(); ?>
                 </h2>
             </div>
             <div class="characterName">
-                <h3>Character's name :
+                <h3>Nom du personnage :
                     <?php echo $result->getcharacterSheetName() ?>
                 </h3>
             </div>
             <div class="characterName">
-                <p>class :
+                <p>Classe du personnage :
                     <?php echo $result->getcharacterSheetClass() ?>
                 </p>
             </div>
             <div class="characterName">
-                <p>Status :
+                <p>Statut du personnage :
                     <?php echo $result->getcharacterSheetStatus() ?>
                 </p>
             </div>
