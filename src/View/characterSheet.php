@@ -9,7 +9,7 @@ use Model\User;
 // use Model\User;
 
 
-$id = $_GET['index'];
+$id = intval($_GET['index']);
 
 
 $sqlCharacterSheet = "SELECT  `userr`.* FROM `userr`
