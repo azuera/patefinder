@@ -10,7 +10,7 @@ use Model\User;
 
 
 $id = intval($_GET['index']);
-var_dump($id);
+
 
 $sqlCharacterSheet = "SELECT  `userr`.* FROM `userr`
 LEFT JOIN charactersheetuser ON charactersheetuser.userrId = userr.userrId
@@ -54,6 +54,9 @@ if (isset($_GET)) {
     $skillResults = $statementSelectSkill->fetchAll();
 }
 
+if (isset($_GET['update'])) {
+    echo "L'equipement a bien été modifié";
+}
 
 foreach ($results as $result) {
     if (isset($_SESSION['user'])) {
