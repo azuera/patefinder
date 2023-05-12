@@ -6,5 +6,5 @@ $sqlDeleteEquipement = "DELETE FROM `equipement` WHERE equipementId = :equipemen
 $statementEquipement=$connection->prepare($sqlDeleteEquipement);
 $statementEquipement->bindValue(':equipementId', $id, PDO::PARAM_INT);
 $statementEquipement->execute();
-header("Location:?page=characterSheet&index=$id");
+header("Location:?page=characterSheet&index=$idSheet");
 ?>
