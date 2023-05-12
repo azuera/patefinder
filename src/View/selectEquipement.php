@@ -16,10 +16,10 @@ if (!empty($_GET)) {
                     <h5 class="card-title">
                         <?= $result->getEquipementName(); ?>
                     </h5>
-                    <p class="card-text">degats :
+                    <p class="card-text">dégâts :
                         <?= $result->getEquipementDamage(); ?>
                     </p>
-                    <p class="card-text">range :
+                    <p class="card-text">Portée :
                         <?= $result->getEquipementRange(); ?>
                     </p>
                     <a href="?pages=charactereSheetCart&index=<?= $result->getEquipementId() ?>" class="btn btn-primary">ajouter
