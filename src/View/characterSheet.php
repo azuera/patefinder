@@ -33,15 +33,12 @@ $results = $statementCharacterSheet->fetchAll();
 if (isset($_GET)) {
 
     if (!empty($_GET['delete'])) {
-        // echo "oui";
         $sqlDeleteSkill = "DELETE FROM `skill` WHERE skillId = :skillId";
         $statementDeleteSkill = $connection->prepare($sqlDeleteSkill);
         $statementDeleteSkill->bindValue(':skillId', $_GET['delete'], PDO::PARAM_INT);
         $statementDeleteSkill->execute();
         var_dump($_GET);
         header("Location:?page=characterSheet&index=$id");
-    } else {
-        echo "non";
     }
 
     $sqlEquipement = "SELECT equipement.* FROM `equipement`
