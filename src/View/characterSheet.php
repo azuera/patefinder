@@ -150,7 +150,7 @@ foreach ($results as $result) {
                         <p class="card-text">range :
                             <?= $equipementResult->getEquipementRange(); ?>
                         </p>
-
+                        <a class="btn btn-danger" href="?page=deleteEquipement&index=<?= $equipementResult->getEquipementId();?>&sheetId=<?= $id?>">Supprimez</a>
                     </div>
                 </div>
             </div>
