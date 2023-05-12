@@ -25,7 +25,7 @@ if(!empty($_POST)){
     $statementUpdateEquipement->bindValue(':equipementId', $id, PDO::PARAM_INT);
     $statementUpdateEquipement->execute();
     
-    header("Location:?page=updateEquipement&index=$id&update=success");
+    header("Location:?page=characterSheet&index=$id&update=success");
 }
 if (isset($_GET['update'])) {
     echo "L'equipement a bien été modifié";
