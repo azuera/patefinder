@@ -189,17 +189,13 @@ foreach ($results as $result) {
                         <p class="card-text">Portée :
                             <?= $equipementResult->getEquipementRange(); ?>
                         </p>
-<<<<<<< Updated upstream
-                        <a class="btn btn-danger" href="?page=deleteEquipement&index=<?= $equipementResult->getEquipementId();?>&sheetId=<?= $id?>">Supprimer l'équipement</a>
-
-                        <a class="btn btn-primary" href="?page=updateEquipement&index=<?= $equipementResult->getEquipementId();?>&sheetId=<?= $id?>">Modifier l'équipement</a>
-=======
                         <a class="btn btn-danger"
-                            href="?page=deleteEquipement&index=<?= $equipementResult->getEquipementId(); ?>&sheetId=<?= $id ?>">Supprimez</a>
+                            href="?page=deleteEquipement&index=<?= $equipementResult->getEquipementId(); ?>&sheetId=<?= $id ?>">Supprimer
+                            l'équipement</a>
 
                         <a class="btn btn-primary"
-                            href="?page=updateEquipement&index=<?= $result->getCharacterSheetId(); ?>">modifié l'équipement</a>
->>>>>>> Stashed changes
+                            href="?page=updateEquipement&index=<?= $equipementResult->getEquipementId(); ?>&sheetId=<?= $id ?>">Modifier
+                            l'équipement</a>
                     </div>
                 </div>
             </div>
