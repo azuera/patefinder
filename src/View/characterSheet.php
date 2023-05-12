@@ -10,7 +10,6 @@ use Model\User;
 
 
 $id = intval($_GET['index']);
-$delete = intval($_GET['delete']);
 
 
 $sqlCharacterSheet = "SELECT  `userr`.* FROM `userr`
@@ -36,7 +35,7 @@ if (isset($_GET)) {
     if (!empty($_GET['delete'])) {
         $sqlDeleteSkill = "DELETE FROM `skill` WHERE skillId = :skillId";
         $statementDeleteSkill = $connection->prepare($sqlDeleteSkill);
-        $statementDeleteSkill->bindValue(':skillId', $delete, PDO::PARAM_INT);
+        $statementDeleteSkill->bindValue(':skillId', intval($_GET['delete']), PDO::PARAM_INT);
         $statementDeleteSkill->execute();
         var_dump($_GET);
         header("Location:?page=characterSheet&index=$id");
@@ -187,13 +186,14 @@ foreach ($results as $result) {
                         <p class="card-text">Portée :
                             <?= $equipementResult->getEquipementRange(); ?>
                         </p>
+                        <a class="btn btn-primary"
+                            href="?page=updateEquipement&index=<?= $equipementResult->getEquipementId(); ?>&sheetId=<?= $id ?>">Modifier
+                            l'équipement</a>
+
                         <a class="btn btn-danger"
                             href="?page=deleteEquipement&index=<?= $equipementResult->getEquipementId(); ?>&sheetId=<?= $id ?>">Supprimer
                             l'équipement</a>
 
-                        <a class="btn btn-primary"
-                            href="?page=updateEquipement&index=<?= $equipementResult->getEquipementId(); ?>&sheetId=<?= $id ?>">Modifier
-                            l'équipement</a>
                     </div>
                 </div>
             </div>
@@ -227,7 +227,7 @@ foreach ($results as $result) {
                         <a class="btn btn-primary" href="?page=updateSkill&index=<?= $result->getCharacterSheetId(); ?>">modifier le
                             skill</a>
                         <!-- delete -->
-                        <a class="btn btn-primary" href="?page=characterSheet&index=<?= $result->getCharacterSheetId();
+                        <a class="btn btn-danger" href="?page=characterSheet&index=<?= $result->getCharacterSheetId();
                         ?>&delete=<?= $skillResult->getSkillId(); ?>">Supprimer
                             le skill</a>
                     </div>
