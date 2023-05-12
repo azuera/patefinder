@@ -10,6 +10,7 @@ use Model\User;
 
 
 $id = intval($_GET['index']);
+$delete = intval($_GET['delete']);
 
 
 $sqlCharacterSheet = "SELECT  `userr`.* FROM `userr`
@@ -31,6 +32,16 @@ $statementCharacterSheet->setFetchMode(PDO::FETCH_CLASS, CharacterSheet::class);
 $results = $statementCharacterSheet->fetchAll();
 
 if (isset($_GET)) {
+
+    if (!empty($_GET['delete'])) {
+        $sqlDeleteSkill = "DELETE FROM `skill` WHERE skillId = :skillId";
+        $statementDeleteSkill = $connection->prepare($sqlDeleteSkill);
+        $statementDeleteSkill->bindValue(':skillId', $delete, PDO::PARAM_INT);
+        $statementDeleteSkill->execute();
+        var_dump($_GET);
+        header("Location:?page=characterSheet&index=$id");
+    }
+
     $sqlEquipement = "SELECT equipement.* FROM `equipement`
     LEFT JOIN character_sheet ON character_sheet.characterSheetId = equipement.idCharacterSheet
     WHERE idCharacterSheet = :characterSheetId ";
@@ -51,7 +62,8 @@ if (isset($_GET)) {
     $statementSelectSkill->execute();
 
     $statementSelectSkill->setFetchMode(PDO::FETCH_CLASS, Skill::class);
-    $skillResults = $statementSelectSkill->fetchAll();
+    $skillResults = $statementSelectSkill->fetchall();
+
 }
 
 if (isset($_GET['update'])) {
@@ -175,9 +187,13 @@ foreach ($results as $result) {
                         <p class="card-text">Portée :
                             <?= $equipementResult->getEquipementRange(); ?>
                         </p>
-                        <a class="btn btn-danger" href="?page=deleteEquipement&index=<?= $equipementResult->getEquipementId();?>&sheetId=<?= $id?>">Supprimer l'équipement</a>
+                        <a class="btn btn-danger"
+                            href="?page=deleteEquipement&index=<?= $equipementResult->getEquipementId(); ?>&sheetId=<?= $id ?>">Supprimer
+                            l'équipement</a>
 
-                        <a class="btn btn-primary" href="?page=updateEquipement&index=<?= $equipementResult->getEquipementId();?>&sheetId=<?= $id?>">Modifier l'équipement</a>
+                        <a class="btn btn-primary"
+                            href="?page=updateEquipement&index=<?= $equipementResult->getEquipementId(); ?>&sheetId=<?= $id ?>">Modifier
+                            l'équipement</a>
                     </div>
                 </div>
             </div>
@@ -195,6 +211,7 @@ foreach ($results as $result) {
         </div>
         <?php
     } else {
+        /** @var Skill $skillResult */
         foreach ($skillResults as $skillResult) {
             ?>
             <div class="d-flex">
@@ -207,7 +224,12 @@ foreach ($results as $result) {
                         <p class="card-text">Niveau :
                             <?= $skillResult->getSkillLevel(); ?>
                         </p>
-
+                        <a class="btn btn-primary" href="?page=updateSkill&index=<?= $result->getCharacterSheetId(); ?>">modifier le
+                            skill</a>
+                        <!-- delete -->
+                        <a class="btn btn-primary" href="?page=characterSheet&index=<?= $result->getCharacterSheetId();
+                        ?>&delete=<?= $skillResult->getSkillId(); ?>">Supprimer
+                            le skill</a>
                     </div>
                 </div>
             </div>
