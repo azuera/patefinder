@@ -28,9 +28,6 @@ if (!empty($_POST)) {
 
     header("Location:?page=characterSheet&index=$id&update=success");
 }
-if (isset($_GET['update'])) {
-    echo "L'equipement a bien été modifié";
-}
 ?>
 <form action="" method="post">
     <div class="mb-3">
