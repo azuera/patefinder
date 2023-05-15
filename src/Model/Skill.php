@@ -5,9 +5,9 @@ class Skill
 {
     protected ?int $skillId;
 
-    protected ?string $skillName;
+    protected string $skillName;
 
-    protected ?int $skillLevel;
+    protected int $skillLevel;
 
     protected ?int $idCharacterSheet;
 

@@ -226,7 +226,7 @@ foreach ($results as $result) {
                         </p>
                         <!-- update Skill -->
                         <a class="btn btn-primary"
-                            href="?page=updateSkill&index=<?= $result->getCharacterSheetId(); ?>&skillId=<?= $skillResult->getSkillId() ?>">modifier
+                            href="?page=updateSkill&index=<?= $result->getCharacterSheetId(); ?>&skillId=<?= $skillResult->getSkillId(); ?>">modifier
                             le
                             skill</a>
                         <!-- delete -->
