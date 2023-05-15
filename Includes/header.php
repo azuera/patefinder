@@ -54,6 +54,9 @@ require_once 'db.inc.php';
                     <li class="nav-item">
                         <a class="nav-link" href="?page=characterSheetList">Afficher la liste des personnages</a>
                     </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="?page=listGame">Afficher la liste des parties</a>
+                    </li>
 
                 <?php } else { ?>
                     <li class="nav-item">

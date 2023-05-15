@@ -1,19 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
   <component name="ChangeListManager">
     <list default="true" id="ed96ba19-bde6-48af-8ec7-d266a3571d70" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/patefinder.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Includes/header.php" beforeDir="false" afterPath="$PROJECT_DIR$/Includes/header.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Model/CharacterSheet.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Model/CharacterSheet.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Model/Equipement.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Model/Equipement.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Model/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Model/User.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/View/characterSheet.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/View/characterSheet.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/View/createCharacterSheet.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/View/createCharacterSheet.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/View/createEquipement.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/View/createEquipement.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/View/characterSheetCart.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/View/characterSheetList.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/View/characterSheetList.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -34,15 +29,21 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "C:/wamp64/www/patefinder",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;com.jetbrains.php.lang.actions.generation.PhpGenerateFieldAccessorHandlerBase$MyMemberChooser.fluent.setters.last.selected&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/wamp64/www/patefinder&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -52,7 +53,12 @@
       <option name="presentableId" value="Default" />
       <updated>1683617729471</updated>
       <workItem from="1683617729487" duration="42000" />
+      <workItem from="1683877310274" duration="21454000" />
+      <workItem from="1684134450382" duration="5958000" />
     </task>
     <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
   </component>
 </project>
