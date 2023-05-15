@@ -32,11 +32,11 @@ if (!empty($_POST)) {
     $skillLevel = intval($_POST['skillLevel']);
 
     if (empty($skillName)) {
-        array_push($errors, "Veuillez entrer un nom de compétence");
+        $errors[] = "Veuillez entrer un nom de compétence";
 
     }
     if ($skillLevel == '' || $skillLevel > 5 || $skillLevel < 0) {
-        array_push($errors, "Veuillez entrer un niveau de compétence compris entre 0 et 5");
+        $errors[] = "Veuillez entrer un niveau de compétence compris entre 0 et 5";
 
     }
 
