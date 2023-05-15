@@ -224,7 +224,10 @@ foreach ($results as $result) {
                         <p class="card-text">Niveau :
                             <?= $skillResult->getSkillLevel(); ?>
                         </p>
-                        <a class="btn btn-primary" href="?page=updateSkill&index=<?= $result->getCharacterSheetId(); ?>">modifier le
+                        <!-- update Skill -->
+                        <a class="btn btn-primary"
+                            href="?page=updateSkill&index=<?= $result->getCharacterSheetId(); ?>&skillId=<?= $skillResult->getSkillId(); ?>">modifier
+                            le
                             skill</a>
                         <!-- delete -->
                         <a class="btn btn-danger" href="?page=characterSheet&index=<?= $result->getCharacterSheetId();

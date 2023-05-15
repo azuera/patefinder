@@ -37,12 +37,12 @@ if (!empty($_POST)) {
 
     <label for="skillsId">Caractéristique associée :</label>
     <select id="skillsId" name="skillsId" required>
-        <option value=0>Strength</option>
-        <option value=1>Dexterity</option>
-        <option value=2>Stamina</option>
+        <option value=0>Force</option>
+        <option value=1>Dexterité</option>
+        <option value=2>Endurance</option>
         <option value=3>Intelligence</option>
-        <option value=4>Wisdom</option>
-        <option value=5>Luck</option>
+        <option value=4>Sagesse</option>
+        <option value=5>Chance</option>
     </select>
 
     <label for="skillLevel">Niveau de la compétence :</label>
