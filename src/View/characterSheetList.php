@@ -2,22 +2,7 @@
 
 use Model\CharacterSheet;
 use Model\User;
-var_dump($_GET);
-if(isset($_GET['gameindex'])){
-    $indexgame=$_GET['gameindex'];
-}
 
-if (isset($_GET['indexperso'])){
-    $indexperso=$_GET['indexperso'];
-
-
-    $sqlUpdateCharactereSheet="UPDATE `character_sheet` SET `gameId`= :indexgame WHERE characterSheetId = :characterSheetId  ";
-    $statementUpdateCharacterSheet = $connection->prepare($sqlUpdateCharactereSheet);
-    $statementUpdateCharacterSheet->bindValue(':characterSheetId',$indexperso,PDO::PARAM_INT);
-    $statementUpdateCharacterSheet->bindValue(':indexgame',$indexgame,PDO::PARAM_INT);
-    $statementUpdateCharacterSheet->execute();
-    var_dump($statementUpdateCharacterSheet);
-}
 
 
 
@@ -79,9 +64,7 @@ GROUP BY userr.userrId";
                 </p>
             </div>
             <a class="btn btn-primary" href="?page=characterSheet&index=<?= $result->getCharacterSheetId(); ?>">Voir plus</a>
-        <?php if (isset($_GET['gameindex'])){ ?>
-            <a class="btn btn-primary" href="?page=characterSheetList&gameindex=<?php echo $indexgame?>&&indexperso=<?=$result->getCharacterSheetId()?>">ajouter votre perso a une feuille de caractere</a>
-            <?php } ?>
+
             <?php
 
 
