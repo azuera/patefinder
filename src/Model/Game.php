@@ -7,6 +7,7 @@ class Game
     protected ?int $gameId = null;
     protected ?string $gameName = null;
     protected ?string $gameLore = null;
+    protected ?int $userrId = null;
 
     /**
      * @return string
@@ -63,4 +64,20 @@ class Game
     }
 
 
+
+	/**
+	 * @return 
+	 */
+	public function getUserrId(): ?int {
+		return $this->userrId;
+	}
+	
+	/**
+	 * @param  $userrId 
+	 * @return self
+	 */
+	public function setUserrId(?int $userrId): self {
+		$this->userrId = $userrId;
+		return $this;
+	}
 }

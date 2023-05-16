@@ -21,13 +21,26 @@ WHERE character_sheet.gameId=:index;";
     $statementCharacterSheet->execute();
     $statementCharacterSheet->setFetchMode(PDO::FETCH_CLASS, CharacterSheet::class);
     $results = $statementCharacterSheet->fetchAll();
+foreach($results as $result) {
+}
 
 
+foreach ($resultsGame as $resultGame){
 
-
-foreach ($resultsGame as $resultGame){?>
+    $sqlSelectUser = "SELECT `userr`.userrName FROM `userr`
+    LEFT JOIN game ON game.userrId = userr.userrId
+    WHERE game.gameId = :gameId" ;
+    $statementSelectUser = $connection->prepare($sqlSelectUser);
+    
+    $statementSelectUser->execute([
+            ':gameId' => $resultGame->getGameId(),
+    ]);
+    $resultsUser = $statementSelectUser->fetch(PDO::FETCH_COLUMN);
+    var_dump($resultsUser);
+    ?>
     <div>
         <h2><?php echo $resultGame->getGameName();?></h2>
+        <p><?= $resultsUser?></p>
         <div><?php echo $resultGame->getGameLore();?></div>
     </div>
 

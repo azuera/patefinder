@@ -1,12 +1,15 @@
 <?php
+
+
 if(!empty($_POST)){
     $nameOfTheGame=($_POST['nameOfGame']);
     $loreOfTheGame=($_POST['loreOfGame']);
 
-    $sqlInsert="INSERT INTO `game`( `gameName`, `gameLore`) VALUES (:gameName,:gameLore)";
+    $sqlInsert="INSERT INTO `game`( `gameName`, `gameLore`, `userrId`) VALUES (:gameName,:gameLore, :userrId)";
     $statementInsertgame=$connection->prepare($sqlInsert);
     $statementInsertgame->bindValue(':gameName',$nameOfTheGame,PDO::PARAM_STR);
     $statementInsertgame->bindValue(':gameLore',$loreOfTheGame,PDO::PARAM_STR);
+    $statementInsertgame->bindValue(':userrId',$_SESSION['user']->getUserrId(),PDO::PARAM_INT);
     $statementInsertgame->execute();
 }
 
