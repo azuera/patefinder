@@ -2,7 +2,7 @@
 
 
 use Model\CharacterSheet;
-use Model\game;
+use Model\Game;
 $id=intval($_GET['index']);
 
 $sqlSelect="SELECT * FROM `game` WHERE gameId= :gameId";
@@ -27,8 +27,8 @@ WHERE character_sheet.gameId=:index;";
 
 foreach ($resultsGame as $resultGame){?>
     <div>
-        <h2><?php echo $resultGame->getGameName() ;?></h2>
-        <div><?php echo $resultGame->getGameLore() ;?></div>
+        <h2><?php echo $resultGame->getGameName();?></h2>
+        <div><?php echo $resultGame->getGameLore();?></div>
     </div>
 
 <?php } ?>
@@ -54,10 +54,10 @@ foreach ($resultsGame as $resultGame){?>
                 <td><?= $result->getGameId();?></td>
             </tr>
 
-        <?php }
+            <?php }            
 
-            ?>
+?>
         </table>
-    </div>
-<a class="btn btn-primary" href="?page=characterSheetList&gameindex=<?php echo $resultGame->getGameId();?>"> ajouter des personnages a votre partie</a>
-
+    </div>        
+    <a class="btn btn-primary" href="?page=characterSheetList&gameindex=<?php echo $resultGame->getGameId();?>"> Ajouter des personnages à votre partie</a>
+    
