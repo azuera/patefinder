@@ -40,6 +40,7 @@ if (!empty($_POST)) {
             <?php
         } ?>
         <?php if (!empty($errors["equipementDamage"])) {
+            // Tu es un sorcier harry
             ?>
             <p class="alert alert-danger">Les dégâts ne peuvent pas être en dessous de 0</p>
             <?php
