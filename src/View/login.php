@@ -3,22 +3,42 @@
 
 use Model\User;
 
-var_dump($_POST);
+
 if (!empty($_POST)) {
     $usermail = trim($_POST['email_username']);
-    $sql = "SELECT * FROM userr WHERE userrEmail='$usermail' ";
-    $statement = $connection->prepare($sql);
-    $statement->setFetchMode(PDO::FETCH_CLASS, User::class);
-    $statement->execute();
-    $result = $statement->fetch();
-    $hash = $result->getUserrPassword();
+    $password = trim($_POST['password']);
+    $errors = [];
+    if (empty($usermail)) {
+        $errors[] = "Entrez un Pseudo/ Email";
+    }
+    if (empty($password)) {
+        $errors[] = "Mot de passe incorrect";
+    }
+    if (empty($errors)) {
+        $sql = "SELECT * FROM userr WHERE userrEmail='$usermail' ";
+        $statement = $connection->prepare($sql);
+        $statement->setFetchMode(PDO::FETCH_CLASS, User::class);
+        $statement->execute();
+        $result = $statement->fetch();
+        $hash = $result->getUserrPassword();
 
-    if (password_verify($_POST['password'],$hash)) {
-        $_SESSION['user'] = $result;
-        echo "Le mot de passe est correct.";
-        header('location:index.php?login=success');
+        if (password_verify($_POST['password'], $hash)) {
+            $_SESSION['user'] = $result;
+            header('location:?page=home&login=success');
+        } else {
+            ?>
+            <p class="alert alert-danger">Mot de passe incorrect</p>
+            <?php
+        }
+
     } else {
-        echo "Le mot de passe est incorrect.";
+        foreach ($errors as $error) {
+            ?>
+            <p class="alert alert-danger ">
+                <?= $error; ?>
+            </p>
+            <?php
+        }
     }
 }
 
@@ -26,7 +46,7 @@ if (!empty($_POST)) {
 ?>
 <form action="" method="post">
     <div class="mb-3">
-        <label for="email_username" class="form-label">usermail/ username</label>
+        <label for="email_username" class="form-label">Mail ou Pseudo</label>
         <input type="text" class="form-control" id="email_username" name="email_username">
     </div>
     <div class="mb-3">
