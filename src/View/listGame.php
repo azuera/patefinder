@@ -19,6 +19,7 @@ foreach ($resultsGame as $resultGame){ ?>
         <h5 class="card-title"><?= $resultGame->getGameName() ;?></h5>
 
         <a href="?page=game&index=<?php echo $resultGame->getGameId();?>" class="btn btn-primary">voir détails</a>
+        <a href="?page=deleteGame&index=<?= $resultGame->getGameId();?>" class="btn btn-danger">Supprimer la game</a>
     </div>
 </div>
 <?php } ?>

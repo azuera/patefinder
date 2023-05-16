@@ -11,16 +11,16 @@ class Game
     /**
      * @return string
      */
-    public function getGameId(): string
+    public function getGameId(): int
     {
         return $this->gameId;
     }
 
     /**
-     * @param string $gameId
+     * @param int $gameId
      * @return game
      */
-    public function setGameId(string $gameId): game
+    public function setGameId(int $gameId): game
     {
         $this->gameId = $gameId;
         return $this;
