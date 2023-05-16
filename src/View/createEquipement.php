@@ -30,7 +30,6 @@ if (!empty($_POST)) {
         $statementInsertEquipement->execute();
         header("Location:?page=characterSheet&index=$id");
     }
-    var_dump($equipement);
 }
 ?>
 <form action="" method="post">
