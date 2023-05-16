@@ -11,6 +11,7 @@ if(!empty($_POST)){
     $statementInsertgame->bindValue(':gameLore',$loreOfTheGame,PDO::PARAM_STR);
     $statementInsertgame->bindValue(':userrId',$_SESSION['user']->getUserrId(),PDO::PARAM_INT);
     $statementInsertgame->execute();
+    header("location:?page=listGame");
 }
 
 

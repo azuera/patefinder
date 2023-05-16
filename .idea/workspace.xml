@@ -5,10 +5,15 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ed96ba19-bde6-48af-8ec7-d266a3571d70" name="Changes" comment="">
+<<<<<<< HEAD
+      <change afterPath="$PROJECT_DIR$/.idea/sqldialects.xml" afterDir="false" />
+=======
+      <change afterPath="$PROJECT_DIR$/src/View/deleteCharatereFromList.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Includes/header.php" beforeDir="false" afterPath="$PROJECT_DIR$/Includes/header.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/View/characterSheetCart.php" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/View/characterSheetList.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/View/characterSheetList.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/View/createGame.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/View/createGame.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/View/game.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/View/game.php" afterDir="false" />
+>>>>>>> fff738f (update plus opti du ticket 22.28)
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
