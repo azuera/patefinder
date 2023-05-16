@@ -37,7 +37,6 @@ if (isset($_GET)) {
         $statementDeleteSkill = $connection->prepare($sqlDeleteSkill);
         $statementDeleteSkill->bindValue(':skillId', intval($_GET['delete']), PDO::PARAM_INT);
         $statementDeleteSkill->execute();
-        var_dump($_GET);
         header("Location:?page=characterSheet&index=$id");
     }
 

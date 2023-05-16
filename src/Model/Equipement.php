@@ -32,17 +32,17 @@ class Equipement
 
     public function __construct(array $data = [])
     {
-        if (isset($data['equipementName'])) {
-            $this->setEquipementName(trim($data['equipementName']));
-        }
-        if (isset($data['equipementRange'])) {
-            $this->setEquipementRange(intval($data['equipementRange']));
-        }
         if (isset($data['equipementId'])) {
             $this->setEquipementId(intval($data['equipementId']));
         }
+        if (isset($data['equipementName'])) {
+            $this->setEquipementName(trim($data['equipementName']));
+        }
         if (isset($data['equipementDamage'])) {
             $this->setEquipementDamage(intval($data['equipementDamage']));
+        }
+        if (isset($data['equipementRange'])) {
+            $this->setEquipementRange(intval($data['equipementRange']));
         }
 
 
