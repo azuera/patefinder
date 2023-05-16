@@ -5,9 +5,9 @@ namespace Model;
 class Equipement
 {
     protected ?int $equipementId = null;
-    protected ?string $equipementName;
-    protected ?int $equipementDamage;
-    protected ?int $equipementRange;
+    protected string $equipementName = "";
+    protected int $equipementDamage = 0;
+    protected int $equipementRange = 0;
     protected ?int $idCharacterSheet = null;
 
     /**
@@ -30,18 +30,19 @@ class Equipement
 
 
 
-    public function __construct(array $data = []){
-        if (isset($data['equipementName'])) {
-            $this->setEquipementName($data['equipementName']);
-        }
-        if (isset($data['equipementRange'])) {
-            $this->setEquipementRange($data['equipementRange']);
-        }
+    public function __construct(array $data = [])
+    {
         if (isset($data['equipementId'])) {
-            $this->setEquipementId($data['equipementId']);
+            $this->setEquipementId(intval($data['equipementId']));
+        }
+        if (isset($data['equipementName'])) {
+            $this->setEquipementName(trim($data['equipementName']));
         }
         if (isset($data['equipementDamage'])) {
-            $this->setEquipementDamage($data['equipementDamage']);
+            $this->setEquipementDamage(intval($data['equipementDamage']));
+        }
+        if (isset($data['equipementRange'])) {
+            $this->setEquipementRange(intval($data['equipementRange']));
         }
 
 
@@ -68,7 +69,7 @@ class Equipement
     /**
      * @return string|null
      */
-    public function getEquipementName(): ?string
+    public function getEquipementName(): string
     {
         return $this->equipementName;
     }
@@ -77,7 +78,7 @@ class Equipement
      * @param string|null $equipementName
      * @return Equipement
      */
-    public function setEquipementName(?string $equipementName): Equipement
+    public function setEquipementName(string $equipementName): Equipement
     {
         $this->equipementName = trim($equipementName);
         return $this;
@@ -86,7 +87,7 @@ class Equipement
     /**
      * @return int|null
      */
-    public function getEquipementDamage(): ?int
+    public function getEquipementDamage(): int
     {
         return $this->equipementDamage;
     }
@@ -95,10 +96,10 @@ class Equipement
      * @param int|null $equipementDamage
      * @return Equipement
      */
-    public function setEquipementDamage(?int $equipementDamage): Equipement
+    public function setEquipementDamage(int $equipementDamage): Equipement
     {
-        if($equipementDamage >= 0) {
-            
+        if ($equipementDamage >= 0) {
+
             $this->equipementDamage = $equipementDamage;
         }
         return $this;
@@ -107,7 +108,7 @@ class Equipement
     /**
      * @return int|null
      */
-    public function getEquipementRange(): ?int
+    public function getEquipementRange(): int
     {
         return $this->equipementRange;
     }
@@ -116,7 +117,7 @@ class Equipement
      * @param int|null $equipementRange
      * @return Equipement
      */
-    public function setEquipementRange(?int $equipementRange): Equipement
+    public function setEquipementRange(int $equipementRange): Equipement
     {
         $this->equipementRange = $equipementRange;
         return $this;
