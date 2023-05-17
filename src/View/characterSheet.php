@@ -96,7 +96,7 @@ foreach ($results as $result) {
             </div>
             <div class="characterName">
                 <p>Statut du personnage :
-                    <?php echo $result->getCharacterSheetStatusLabel() // A FAIRE?>
+                    <?php echo $result->getCharacterSheetStatusLabel() ?>
                 </p>
             </div>
             <div class="characterName">
