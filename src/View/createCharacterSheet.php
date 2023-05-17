@@ -153,27 +153,27 @@ if (!empty($_POST)) {
   <input type="number" id="characteristicInitiative" name="characteristicInitiative"
     value="<?= $characterSheet->getcharacteristicInitiative() ?>">
 
-  <label for="characteristicHpMax">Points de vie max:</label>
+  <label for="characteristicHpMax">PV max:</label>
   <input type="number" id="characteristicHpMax" name="characteristicHpMax"
     value="<?= $characterSheet->getcharacteristicHpMax() ?>" min="1" max="999" required>
 
-  <label for="characteristicActualHp">Points Actual:</label>
+  <label for="characteristicActualHp">PV actuel:</label>
   <input type="number" id="characteristicActualHp" name="characteristicActualHp"
     value="<?= $characterSheet->getcharacteristicActualHp() ?>" min="0" max="999" required>
 
-  <label for="characteristicMpMax">Magic Points Max:</label>
+  <label for="characteristicMpMax">PM Max:</label>
   <input type="number" id="characteristicMpMax" name="characteristicMpMax"
     value="<?= $characterSheet->getcharacteristicMpMax() ?>" min="1" max="999" required>
 
-  <label for="characteristicActualMp">Magic Points Actual:</label>
+  <label for="characteristicActualMp">PM actuel:</label>
   <input type="number" id="characteristicActualMp" name="characteristicActualMp"
     value="<?= $characterSheet->getcharacteristicActualMp() ?>" min="0" max="999" required>
 
-  <label for="characteristicStrength">Strength (max 20):</label>
+  <label for="characteristicStrength">Force (max 20):</label>
   <input type="number" id="characteristicStrength" name="characteristicStrength"
     value="<?= $characterSheet->getcharacteristicStrength() ?>" min="0" max="20" required>
 
-  <label for="characteristicDexterity">Dexterity (max 20):</label>
+  <label for="characteristicDexterity">Dexterité (max 20):</label>
   <input type="number" id="characteristicDexterity" name="characteristicDexterity"
     value="<?= $characterSheet->getcharacteristicDexterity() ?>" min="0" max="20" required>
 
@@ -181,74 +181,20 @@ if (!empty($_POST)) {
   <input type="number" id="characteristicStamina" name="characteristicStamina"
     value="<?= $characterSheet->getcharacteristicStamina() ?>" min="0" max="20" required>
 
-  <label for="characteristicIntelligence">Intelligence (maximum 20):</label>
+  <label for="characteristicIntelligence">Intélligence (maximum 20):</label>
   <input type="number" id="characteristicIntelligence" name="characteristicIntelligence"
     value="<?= $characterSheet->getcharacteristicIntelligence() ?>" min="0" max="20" required>
 
-  <label for="characteristicWisdom">Wisdom (maxi 20):</label>
+  <label for="characteristicWisdom">Sagesse (maxi 20):</label>
   <input type="number" id="characteristicWisdom" name="characteristicWisdom"
     value="<?= $characterSheet->getcharacteristicWisdom() ?>" min="0" max="20" required>
 
-  <label for="characteristicLuck">Luck (max 20):</label>
+  <label for="characteristicLuck">Chance (max 20):</label>
   <input type="number" id="characteristicLuck" name="characteristicLuck"
     value="<?= $characterSheet->getcharacteristicLuck() ?>" min="0" max="20" required>
 
 
 
 
-  <button type="submit" class="btn btn-primary">Submit</button>
+  <button type="submit" class="btn btn-primary">Envoyer</button>
 </form>
-
-<!-- <script>
-    function validateForm() {
-      let initiative = document.getElementById("initiative").value;
-      if (initiative > 10) {
-        alert("Initiative must be less than or equal to 10.");
-        return false;
-      }
-    
-      
-      let characteristicHpMax = document.getElementById("characteristicHpMax").value;
-      let characteristicActualHp = document.getElementById("characteristicActualHp").value;
-      if (characteristicActualHp > characteristicHpMax) {
-        alert("Current health points cannot exceed maximum health points.");
-        return false;
-      }
-    
-      
-      let characteristicMpMax = document.getElementById("characteristicMpMax").value;
-      let characteristicActualMp = document.getElementById("characteristicActualMp").value;
-      if (characteristicActualMp > characteristicMpMaxs) {
-        alert("Current magic points cannot exceed the maximum magic points.");
-        return false;
-      }
-    
-      
-      let characteristicStrength = document.getElementById("strength").value;
-      let characteristicDexterity = document.getElementById("characteristicDexterity").valcharacteristicStrengthue;
-      let characteristicStamina = document.getElementById("characteristicStamina").value;
-      let characteristicIntelligence = document.getElementById("characteristicIntelligence").value;
-      let characteristicWisdom = document.getElementById("characteristicWisdom").value;
-      let characteristicLuck = document.getElementById("characteristicLuck").value;
-    
-      if (characteristicStrength > 20 || characteristicDexterity > 20 || characteristicStamina > 20 || characteristicIntelligence > 20 || characteristicWisdom > 20 || characteristicLuck > 20) {
-        alert("Characteristics cannot exceed 20.");
-        return false;
-      }
-    
-      let skills_level = document.getElementById("Skills_level").value;
-      if (skills_level < 0 || skills_level > 5) {
-        alert("The level of the skill must be between 0 and 5.");
-        return false;
-      }
-    
-      
-      let equipement_range = document.getElementById("equipement_range").value;
-      if (equipement_range< 0 || equipement_range > 5) {
-        alert("The range of the equipment must be between 0 and 5.");
-        return false;
-      }
-    
-      return true
-    }
-    </script> -->
