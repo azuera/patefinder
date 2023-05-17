@@ -93,6 +93,8 @@ foreach ($results as $result) {
                 <p>Chance :
                     <?php echo $result->getcharacteristicLuck() ?>
                 </p>
+                <a class="btn btn-secondary" href="?page=updateCharacterSheet&index=<?= $result->getCharacterSheetId();?>">
+                Modifier votre personnage</a>
             </div>
         </section>
         <?php
