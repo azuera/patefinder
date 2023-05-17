@@ -44,8 +44,6 @@ class Equipement
         if (isset($data['equipementRange'])) {
             $this->setEquipementRange(intval($data['equipementRange']));
         }
-
-
     }
 
     /**

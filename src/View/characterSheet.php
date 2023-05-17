@@ -96,7 +96,7 @@ foreach ($results as $result) {
             </div>
             <div class="characterName">
                 <p>Statut du personnage :
-                    <?php echo $result->getcharacterSheetStatus() ?>
+                    <?php echo $result->getCharacterSheetStatusLabel() ?>
                 </p>
             </div>
             <div class="characterName">
@@ -135,7 +135,7 @@ foreach ($results as $result) {
                 </p>
             </div>
             <div class="characterName">
-                <p>Endurance :
+                <p>Constitution :
                     <?php echo $result->getcharacteristicStamina() ?>
                 </p>
             </div>
