@@ -133,10 +133,10 @@ if (!empty($_POST)) {
   <label for="characterSheetStatus">Statut du personnage :</label>
   <select name="characterSheetStatus" id="characterSheetStatus">
     <?php
-    foreach (CharacterSheet::CHARACTER_SHEET_STATUS_LIST as $status) {
+    foreach (CharacterSheet::CHARACTER_SHEET_STATUS_LIST as $key => $status) {
       ?>
-      <option value="<?= $status ?>" <?php
-        if ($characterSheet->getCharacterSheetStatus() == $status) {
+      <option value="<?= $key ?>" <?php
+        if ($characterSheet->getCharacterSheetStatus() == $key) {
           echo 'selected';
         } ?>>
         <?= $status; ?>
@@ -151,7 +151,8 @@ if (!empty($_POST)) {
 
   <label for="characteristicInitiative">Initiative (max 10):</label>
   <input type="number" id="characteristicInitiative" name="characteristicInitiative"
-    value="<?= $characterSheet->getcharacteristicInitiative() ?>">
+    value="<?= $characterSheet->getcharacteristicInitiative() ?>" min="0" max="10">
+  <!-- min="0" max="10" -->
 
   <label for="characteristicHpMax">PV max:</label>
   <input type="number" id="characteristicHpMax" name="characteristicHpMax"
