@@ -8,7 +8,6 @@ $characterSheet = (new CharacterSheet($_POST))
   ->setUserrId($userId);
 
 if (!empty($_POST)) {
-  var_dump($_POST);
 
   $characterSheetName = $_POST["characterSheetName"];
   $characterSheetClass = $_POST["characterSheetClass"];
