@@ -29,13 +29,14 @@ $results = $statementSelectSkill->fetch();
 if (!empty($_POST)) {
     $skillName = trim($_POST['skillName']);
     $skillLevel = intval($_POST['skillLevel']);
+    $errors = [];
 
     if (empty($skillName)) {
-        $errors = ["Veuillez entrer un nom de compétence"];
+        $errors[] = "Veuillez entrer un nom de compétence";
 
     }
     if ($skillLevel == '' || $skillLevel > 5 || $skillLevel < 0) {
-        $errors = ["Veuillez entrer un niveau de compétence compris entre 0 et 5"];
+        $errors[] = "Veuillez entrer un niveau de compétence compris entre 0 et 5";
 
     }
 

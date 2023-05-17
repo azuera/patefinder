@@ -14,22 +14,33 @@ if (!empty($_POST)) {
     if (empty($password)) {
         $errors[] = "Mot de passe incorrect";
     }
+
     if (empty($errors)) {
-        $sql = "SELECT * FROM userr WHERE userrEmail='$usermail' ";
+        $sql = "SELECT * FROM userr WHERE userrEmail = :bddUserMail OR userrName= :bddUserMail";
         $statement = $connection->prepare($sql);
+        $statement->bindValue(':bddUserMail', $_POST['email_username'], PDO::PARAM_STR);
         $statement->setFetchMode(PDO::FETCH_CLASS, User::class);
         $statement->execute();
         $result = $statement->fetch();
-        $hash = $result->getUserrPassword();
 
-        if (password_verify($_POST['password'], $hash)) {
-            $_SESSION['user'] = $result;
-            header('location:?page=home&login=success');
-        } else {
+        if (!$result) {
             ?>
-            <p class="alert alert-danger">Mot de passe incorrect</p>
+            <p class="alert alert-danger">Utilisateur inconnu</p>
             <?php
+        } else {
+            $hash = $result->getUserrPassword();
+            if (password_verify($_POST['password'], $hash)) {
+                $_SESSION['user'] = $result;
+                header('location:?page=home&login=success');
+            } else {
+                ?>
+                <p class="alert alert-danger">Mot de passe incorrect</p>
+                <?php
+            }
         }
+
+
+
 
     } else {
         foreach ($errors as $error) {
@@ -42,6 +53,7 @@ if (!empty($_POST)) {
     }
 }
 
+// && $bddUserMail == $usermail
 
 ?>
 <form action="" method="post">
