@@ -4,8 +4,6 @@ use Model\CharacterSheet;
 use Model\User;
 
 
-// var_dump($_SESSION['user']);
-// var_dump($_SESSION['user']->getUserrRole());
 ?>
 <a class="btn btn-primary" href="?page=createCharacterSheet"> Créer votre fiche de personnage</a>
 <?php
