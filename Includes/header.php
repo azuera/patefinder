@@ -2,10 +2,6 @@
 
 use Model\User;
 
-require_once 'autoload.php';
-session_start();
-
-require_once 'db.inc.php';
 ?>
 <!DOCTYPE html>
 <html lang="en">

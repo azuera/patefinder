@@ -2,32 +2,7 @@
 
 use Model\Skill;
 
-if (!empty($_POST)) {
 
-    $id = $_GET['index'];
-
-    $skillName = trim($_POST["skillName"]);
-    $skillLevel = intval($_POST['skillLevel']);
-    $idCharacterSheet = intval($_GET['index']);
-
-    var_dump($_POST);
-    var_dump($_GET);
-    $skills = (new Skill($_POST))
-        ->setSkillName($skillName)
-        ->setSkillLevel($skillLevel)
-        ->setIdCharacterSheet($idCharacterSheet);
-
-    $sql = "INSERT INTO `skill`(`skillName`, `skillLevel`, `idCharacterSheet`)
-    VALUES (:skillName, :skillLevel, :idCharacterSheet)";
-
-    $statementInsertSkill = $connection->prepare($sql);
-    $statementInsertSkill->bindValue(":skillName", $skillName, PDO::PARAM_STR);
-    $statementInsertSkill->bindValue(":skillLevel", $skillLevel, PDO::PARAM_INT);
-    $statementInsertSkill->bindValue(':idCharacterSheet', $idCharacterSheet, PDO::PARAM_INT);
-    $statementInsertSkill->execute();
-
-    header("Location:?page=characterSheet&index=$id");
-}
 ?>
 
 
