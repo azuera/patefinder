@@ -10,7 +10,7 @@ class CharacterSheet
         'Neutre',
     ];
 
-    protected int $characterSheetId;
+    protected ?int $characterSheetId = null;
     protected string $characterSheetName = "";
     protected string $characterSheetRace = "";
     protected string $characterSheetClass = "";
@@ -84,7 +84,7 @@ class CharacterSheet
     /**
      * @return int
      */
-    public function getCharacterSheetId(): int
+    public function getCharacterSheetId(): ?int
     {
         return $this->characterSheetId;
     }
@@ -93,6 +93,7 @@ class CharacterSheet
      * @param int $characterSheetId
      * @return CharacterSheet
      */
+
     public function setCharacterSheetId(int $characterSheetId): CharacterSheet
     {
         $this->characterSheetId = $characterSheetId;
