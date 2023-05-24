@@ -1,20 +1,5 @@
 <?php
-
-
-
-
-
-
-
-
-// Requête pour le formulaire de commentaire
-
-   if ($_POST['submit']) {?>
-<div class="alert alert-success my-5" role="alert">Message envoyé</div><?php 
-   }
-   var_dump($_POST);
 ?>
-
 <?php
 foreach ($results as $result) {
     if (isset($_SESSION['user'])) {

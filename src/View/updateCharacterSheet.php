@@ -40,7 +40,7 @@ if (!empty($_POST)) {
     $statementUpdateCharacterSheet->bindValue(':characterSheetId', $id, PDO::PARAM_INT);
     $statementUpdateCharacterSheet->execute();
     
-    header("Location:?page=characterSheet&index=$id&update=success&characterSheet");
+    header("Location:?page=characterSheet&index=$id&updateCharacterSheet=success");
     }
   
   
@@ -121,5 +121,5 @@ if (!empty($_POST)) {
 
 
 
-  <button type="submit" name="submit" value="Validez" class="btn btn-primary">Validez</button>
+  <button type="submit" class="btn btn-primary">Validez</button>
 </form>
