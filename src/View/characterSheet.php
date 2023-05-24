@@ -1,72 +1,12 @@
 <?php
 
 
-use Model\CharacterSheet;
-use Model\Equipement;
-use Model\Skill;
-use Model\User;
-
-// use Model\User;
 
 
-$id = intval($_GET['index']);
 
 
-$sqlCharacterSheet = "SELECT  `userr`.* FROM `userr`
-LEFT JOIN charactersheetuser ON charactersheetuser.userrId = userr.userrId
-LEFT JOIN character_sheet ON character_sheet.characterSheetId = charactersheetuser.characterSheetId
-WHERE character_sheet.characterSheetId = :userName;";
-$statementCharacterSheet = $connection->prepare($sqlCharacterSheet);
-$statementCharacterSheet->bindValue(':userName', $id, PDO::PARAM_INT);
-$statementCharacterSheet->execute();
-$statementCharacterSheet->setFetchMode(PDO::FETCH_CLASS, User::class);
-$resultsUser = $statementCharacterSheet->fetchAll();
 
 
-$sqlCharacterSheet = "SELECT * FROM `character_sheet` WHERE characterSheetId = :characterSheetId";
-$statementCharacterSheet = $connection->prepare($sqlCharacterSheet);
-$statementCharacterSheet->bindValue(':characterSheetId', $id, PDO::PARAM_INT);
-$statementCharacterSheet->execute();
-$statementCharacterSheet->setFetchMode(PDO::FETCH_CLASS, CharacterSheet::class);
-$results = $statementCharacterSheet->fetchAll();
-
-if (isset($_GET)) {
-
-    if (!empty($_GET['delete'])) {
-        $sqlDeleteSkill = "DELETE FROM `skill` WHERE skillId = :skillId";
-        $statementDeleteSkill = $connection->prepare($sqlDeleteSkill);
-        $statementDeleteSkill->bindValue(':skillId', intval($_GET['delete']), PDO::PARAM_INT);
-        $statementDeleteSkill->execute();
-        header("Location:?page=characterSheet&index=$id");
-    }
-
-    $sqlEquipement = "SELECT equipement.* FROM `equipement`
-    LEFT JOIN character_sheet ON character_sheet.characterSheetId = equipement.idCharacterSheet
-    WHERE idCharacterSheet = :characterSheetId ";
-    $statementSelectEquipement = $connection->prepare($sqlEquipement);
-    $statementSelectEquipement->bindValue(':characterSheetId', $id, PDO::PARAM_INT);
-    $statementSelectEquipement->execute();
-
-    $statementSelectEquipement->setFetchMode(PDO::FETCH_CLASS, Equipement::class);
-    $equipementResults = $statementSelectEquipement->fetchAll();
-
-
-    $sqlSkill = "SELECT skill.* FROM `skill` 
-    LEFT JOIN character_sheet ON character_sheet.characterSheetId = skill.idCharacterSheet
-    WHERE idCharacterSheet = :characterSheetId ";
-
-    $statementSelectSkill = $connection->prepare($sqlSkill);
-    $statementSelectSkill->bindValue(':characterSheetId', $id, PDO::PARAM_INT);
-    $statementSelectSkill->execute();
-
-    $statementSelectSkill->setFetchMode(PDO::FETCH_CLASS, Skill::class);
-    $skillResults = $statementSelectSkill->fetchall();
-
-}
-
-if (isset($_GET['update'])) {
-    echo "L'equipement a bien été modifié";
-}
 
 foreach ($results as $result) {
     if (isset($_SESSION['user'])) {

@@ -1,33 +1,7 @@
 <?php
-use Model\Equipement;
-
-$id = $_GET['index'];
-
-$sqlEquipement = "SELECT * FROM equipement WHERE equipementId = :equipementId";
-$statementEquipement = $connection->prepare($sqlEquipement);
-$statementEquipement->bindValue(':equipementId', $id, PDO::PARAM_INT);
-$statementEquipement->execute();
-$statementEquipement->setFetchMode(PDO::FETCH_CLASS, Equipement::class);
-$result = $statementEquipement->fetch();
-var_dump($result);
 
 
-if (!empty($_POST)) {
-    var_dump($_POST);
-    var_dump($_GET);
-    $equipement = new Equipement($_POST);
 
-    $sql = "UPDATE `equipement` SET `equipementName` = :equipementName , `equipementDamage` = :equipementDamage, `equipementRange` = :equipementRange
-    WHERE equipementId = :equipementId";
-    $statementUpdateEquipement = $connection->prepare($sql);
-    $statementUpdateEquipement->bindValue(':equipementName', $equipement->getEquipementName(), PDO::PARAM_STR);
-    $statementUpdateEquipement->bindValue(':equipementDamage', $equipement->getEquipementDamage(), PDO::PARAM_INT);
-    $statementUpdateEquipement->bindValue(':equipementRange', $equipement->getEquipementRange(), PDO::PARAM_INT);
-    $statementUpdateEquipement->bindValue(':equipementId', $id, PDO::PARAM_INT);
-    $statementUpdateEquipement->execute();
-
-    header("Location:?page=characterSheet&index=$id&update=success");
-}
 ?>
 <form action="" method="post">
     <div class="mb-3">
