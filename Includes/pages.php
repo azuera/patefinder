@@ -16,6 +16,7 @@ use Controller\CreateSkillController;
 use Controller\DeleteGameController;
 use Controller\DeleteCharactereFromListController;
 use Controller\CreateCharacterSheetController;
+use Controller\CreateAccountController;
 
 $pages = [
 
@@ -34,6 +35,6 @@ $pages = [
     'deleteGame'=>DeleteGameController::class,
     'deleteCharactereFromList'=>DeleteCharactereFromListController::class,
     'createCharacterSheet'=>CreateCharacterSheetController::class,
-
+    'CreateAccount'=>CreateAccountController::class,
 
 ];
