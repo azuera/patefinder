@@ -6,7 +6,10 @@ foreach ($results as $result) {
         <section>
             <div class="characterName">
                 <h2>Nom du joueur :
-                    <?php echo implode(', ', $resultsUser[$result->getCharacterSheetId()]) ?>
+                    <<<<<<< HEAD <?php echo implode(', ', $resultsUser[$result->getCharacterSheetId()]) ?>
+                        =======
+                        <?php echo implode(', ', $resultsUser) ?>
+                        >>>>>>> 24ab2c6 (34-deleteCharacterSheet)
                 </h2>
             </div>
             <div class="characterName">
@@ -24,6 +27,11 @@ foreach ($results as $result) {
                     <?php echo $result->getcharacterSheetStatus() ?>
                 </p>
             </div>
+            <!-- Affichage delete characterSheet -->
+
+            <a href="?page=deleteCharacterSheet&index=<?= $result->getCharacterSheetId(); ?>" class="btn btn-danger">Supprimer
+                la
+                fiche personnage</a>
             <a class="btn btn-primary" href="?page=characterSheet&index=<?= $result->getCharacterSheetId(); ?>">Voir plus</a>
 
             <?php
