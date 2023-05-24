@@ -1,4 +1,5 @@
 <?php
+
 namespace Model;
 
 class CharacterSheet
@@ -81,7 +82,7 @@ class CharacterSheet
     }
 
     /**
-     * @return 
+     * @return int
      */
     public function getCharacterSheetId(): int
     {
@@ -89,209 +90,71 @@ class CharacterSheet
     }
 
     /**
-     * @param  $characterSheetId 
-     * @return self
+     * @param int $characterSheetId
+     * @return CharacterSheet
      */
-    public function setCharacterSheetId(int $characterSheetId): self
+    public function setCharacterSheetId(int $characterSheetId): CharacterSheet
     {
         $this->characterSheetId = $characterSheetId;
         return $this;
     }
 
-    public function getcharacterSheetName(): string
+    /**
+     * @return string
+     */
+    public function getCharacterSheetName(): string
     {
         return $this->characterSheetName;
     }
 
-    public function setcharacterSheetName(string $characterSheetName): self
+    /**
+     * @param string $characterSheetName
+     * @return CharacterSheet
+     */
+    public function setCharacterSheetName(string $characterSheetName): CharacterSheet
     {
         $this->characterSheetName = $characterSheetName;
         return $this;
     }
 
-
-    public function getcharacteristicInitiative(): ?int
-    {
-        return $this->characteristicInitiative;
-    }
-
-    public function setcharacteristicInitiative(?int $characteristicInitiative): self
-    {
-        $this->characteristicInitiative = $characteristicInitiative;
-        return $this;
-    }
-
-    public function getcharacteristicHpMax(): ?int
-    {
-        return $this->characteristicHpMax;
-    }
-
-    public function setcharacteristicHpMax(?int $characteristicHpMax): self
-    {
-        $this->characteristicHpMax = $characteristicHpMax;
-        return $this;
-    }
-
-    public function getcharacteristicActualHp(): ?int
-    {
-        return $this->characteristicActualHp;
-    }
-
-    public function setcharacteristicActualHp(?int $characteristicActualHp): self
-    {
-        $this->characteristicActualHp = $characteristicActualHp;
-        return $this;
-    }
-
-    public function getcharacteristicMpMax(): ?int
-    {
-        return $this->characteristicMpMax;
-    }
-
-    public function setcharacteristicMpMax(?int $characteristicMpMax): self
-    {
-        $this->characteristicMpMax = $characteristicMpMax;
-        return $this;
-    }
-
-    public function getcharacteristicActualMp(): ?int
-    {
-        return $this->characteristicActualMp;
-    }
-
-
-    public function setcharacteristicActualMp(?int $characteristicActualMp): self
-    {
-        $this->characteristicActualMp = $characteristicActualMp;
-        return $this;
-    }
-
-    public function getcharacteristicStrength(): ?int
-    {
-        return $this->characteristicStrength;
-    }
-
-    public function setcharacteristicStrength(?int $characteristicStrength): self
-    {
-        $this->characteristicStrength = $characteristicStrength;
-        return $this;
-    }
-
-    public function getcharacteristicDexterity(): ?int
-    {
-        return $this->characteristicDexterity;
-    }
-
-    public function setcharacteristicDexterity(?int $characteristicDexterity): self
-    {
-        $this->characteristicDexterity = $characteristicDexterity;
-        return $this;
-    }
-
-    public function getcharacteristicStamina(): ?int
-    {
-        return $this->characteristicStamina;
-    }
-
-    public function setcharacteristicStamina(?int $characteristicStamina): self
-    {
-        $this->characteristicStamina = $characteristicStamina;
-        return $this;
-    }
-
-    public function getcharacteristicIntelligence(): ?int
-    {
-        return $this->characteristicIntelligence;
-    }
-
-    public function setcharacteristicIntelligence(?int $characteristicIntelligence): self
-    {
-        $this->characteristicIntelligence = $characteristicIntelligence;
-        return $this;
-    }
-
-    public function getcharacteristicWisdom(): ?int
-    {
-        return $this->characteristicWisdom;
-    }
-
-    public function setcharacteristicWisdom(?int $characteristicWisdom): self
-    {
-        $this->characteristicWisdom = $characteristicWisdom;
-        return $this;
-    }
-
-    public function getcharacteristicLuck(): ?int
-    {
-        return $this->characteristicLuck;
-    }
-
-    public function setcharacteristicLuck(?int $characteristicLuck): self
-    {
-        $this->characteristicLuck = $characteristicLuck;
-        return $this;
-    }
-
-    public function getcharacterSheetRace(): string
+    /**
+     * @return string
+     */
+    public function getCharacterSheetRace(): string
     {
         return $this->characterSheetRace;
     }
 
-    public function setcharacterSheetRace(string $characterSheetRace): self
+    /**
+     * @param string $characterSheetRace
+     * @return CharacterSheet
+     */
+    public function setCharacterSheetRace(string $characterSheetRace): CharacterSheet
     {
         $this->characterSheetRace = $characterSheetRace;
         return $this;
     }
 
-    public function getcharacterSheetClass(): string
+    /**
+     * @return string
+     */
+    public function getCharacterSheetClass(): string
     {
         return $this->characterSheetClass;
     }
 
-    public function setcharacterSheetClass(string $characterSheetClass): self
+    /**
+     * @param string $characterSheetClass
+     * @return CharacterSheet
+     */
+    public function setCharacterSheetClass(string $characterSheetClass): CharacterSheet
     {
         $this->characterSheetClass = $characterSheetClass;
         return $this;
     }
 
     /**
-     * @return 
-     */
-    public function getGameId(): ?int
-    {
-        return $this->gameId;
-    }
-
-    /**
-     * @param  $gameId 
-     * @return self
-     */
-    public function setGameId(?int $gameId): self
-    {
-        $this->gameId = $gameId;
-        return $this;
-    }
-
-    /**
-     * @return 
-     */
-    public function getUserrId(): ?int
-    {
-        return $this->userrId;
-    }
-
-    /**
-     * @param  $userrId 
-     * @return self
-     */
-    public function setUserrId(?int $userrId): self
-    {
-        $this->userrId = $userrId;
-        return $this;
-    }
-
-    /**
-     * @return 
+     * @return int|null
      */
     public function getCharacterSheetStatus(): ?int
     {
@@ -299,17 +162,253 @@ class CharacterSheet
     }
 
     /**
-     * @param  $characterSheetStatus 
-     * @return self
+     * @param int|null $characterSheetStatus
+     * @return CharacterSheet
      */
-    public function setCharacterSheetStatus(?int $characterSheetStatus): self
+    public function setCharacterSheetStatus(?int $characterSheetStatus): CharacterSheet
     {
         $this->characterSheetStatus = $characterSheetStatus;
         return $this;
     }
+
+    /**
+     * @return int|null
+     */
+    public function getCharacteristicInitiative(): ?int
+    {
+        return $this->characteristicInitiative;
+    }
+
+    /**
+     * @param int|null $characteristicInitiative
+     * @return CharacterSheet
+     */
+    public function setCharacteristicInitiative(?int $characteristicInitiative): CharacterSheet
+    {
+        $this->characteristicInitiative = $characteristicInitiative;
+        return $this;
+    }
+
+    /**
+     * @return int|null
+     */
+    public function getCharacteristicHpMax(): ?int
+    {
+        return $this->characteristicHpMax;
+    }
+
+    /**
+     * @param int|null $characteristicHpMax
+     * @return CharacterSheet
+     */
+    public function setCharacteristicHpMax(?int $characteristicHpMax): CharacterSheet
+    {
+        $this->characteristicHpMax = $characteristicHpMax;
+        return $this;
+    }
+
+    /**
+     * @return int|null
+     */
+    public function getCharacteristicActualHp(): ?int
+    {
+        return $this->characteristicActualHp;
+    }
+
+    /**
+     * @param int|null $characteristicActualHp
+     * @return CharacterSheet
+     */
+    public function setCharacteristicActualHp(?int $characteristicActualHp): CharacterSheet
+    {
+        $this->characteristicActualHp = $characteristicActualHp;
+        return $this;
+    }
+
+    /**
+     * @return int|null
+     */
+    public function getCharacteristicMpMax(): ?int
+    {
+        return $this->characteristicMpMax;
+    }
+
+    /**
+     * @param int|null $characteristicMpMax
+     * @return CharacterSheet
+     */
+    public function setCharacteristicMpMax(?int $characteristicMpMax): CharacterSheet
+    {
+        $this->characteristicMpMax = $characteristicMpMax;
+        return $this;
+    }
+
+    /**
+     * @return int|null
+     */
+    public function getCharacteristicActualMp(): ?int
+    {
+        return $this->characteristicActualMp;
+    }
+
+    /**
+     * @param int|null $characteristicActualMp
+     * @return CharacterSheet
+     */
+    public function setCharacteristicActualMp(?int $characteristicActualMp): CharacterSheet
+    {
+        $this->characteristicActualMp = $characteristicActualMp;
+        return $this;
+    }
+
+    /**
+     * @return int|null
+     */
+    public function getCharacteristicStrength(): ?int
+    {
+        return $this->characteristicStrength;
+    }
+
+    /**
+     * @param int|null $characteristicStrength
+     * @return CharacterSheet
+     */
+    public function setCharacteristicStrength(?int $characteristicStrength): CharacterSheet
+    {
+        $this->characteristicStrength = $characteristicStrength;
+        return $this;
+    }
+
+    /**
+     * @return int|null
+     */
+    public function getCharacteristicDexterity(): ?int
+    {
+        return $this->characteristicDexterity;
+    }
+
+    /**
+     * @param int|null $characteristicDexterity
+     * @return CharacterSheet
+     */
+    public function setCharacteristicDexterity(?int $characteristicDexterity): CharacterSheet
+    {
+        $this->characteristicDexterity = $characteristicDexterity;
+        return $this;
+    }
+
+    /**
+     * @return int|null
+     */
+    public function getCharacteristicStamina(): ?int
+    {
+        return $this->characteristicStamina;
+    }
+
+    /**
+     * @param int|null $characteristicStamina
+     * @return CharacterSheet
+     */
+    public function setCharacteristicStamina(?int $characteristicStamina): CharacterSheet
+    {
+        $this->characteristicStamina = $characteristicStamina;
+        return $this;
+    }
+
+    /**
+     * @return int|null
+     */
+    public function getCharacteristicIntelligence(): ?int
+    {
+        return $this->characteristicIntelligence;
+    }
+
+    /**
+     * @param int|null $characteristicIntelligence
+     * @return CharacterSheet
+     */
+    public function setCharacteristicIntelligence(?int $characteristicIntelligence): CharacterSheet
+    {
+        $this->characteristicIntelligence = $characteristicIntelligence;
+        return $this;
+    }
+
+    /**
+     * @return int|null
+     */
+    public function getCharacteristicWisdom(): ?int
+    {
+        return $this->characteristicWisdom;
+    }
+
+    /**
+     * @param int|null $characteristicWisdom
+     * @return CharacterSheet
+     */
+    public function setCharacteristicWisdom(?int $characteristicWisdom): CharacterSheet
+    {
+        $this->characteristicWisdom = $characteristicWisdom;
+        return $this;
+    }
+
+    /**
+     * @return int|null
+     */
+    public function getCharacteristicLuck(): ?int
+    {
+        return $this->characteristicLuck;
+    }
+
+    /**
+     * @param int|null $characteristicLuck
+     * @return CharacterSheet
+     */
+    public function setCharacteristicLuck(?int $characteristicLuck): CharacterSheet
+    {
+        $this->characteristicLuck = $characteristicLuck;
+        return $this;
+    }
+
+    /**
+     * @return int|null
+     */
+    public function getGameId(): ?int
+    {
+        return $this->gameId;
+    }
+
+    /**
+     * @param int|null $gameId
+     * @return CharacterSheet
+     */
+    public function setGameId(?int $gameId): CharacterSheet
+    {
+        $this->gameId = $gameId;
+        return $this;
+    }
+
+    /**
+     * @return int|null
+     */
+    public function getUserrId(): ?int
+    {
+        return $this->userrId;
+    }
+
+    /**
+     * @param int|null $userrId
+     * @return CharacterSheet
+     */
+    public function setUserrId(?int $userrId): CharacterSheet
+    {
+        $this->userrId = $userrId;
+        return $this;
+    }
+
     public function getCharacterSheetStatusLabel(): string
     {
         return self::CHARACTER_SHEET_STATUS_LIST[$this->characterSheetStatus];
     }
 }
+
 ?>

@@ -1,5 +1,12 @@
 <?php
+foreach ($errors as $error) {
 
+    ?>
+    <p class="alert alert-danger">
+        <?= $error; ?>
+    </p>
+    <?php
+}
 
 
 if (isset($_GET['skillId'])) {

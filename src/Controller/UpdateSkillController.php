@@ -26,11 +26,11 @@ WHERE skillId = :skillId";
 
         $results = $statementSelectSkill->fetch();
 
-
+        $errors = [];
         if (!empty($_POST)) {
             $skillName = trim($_POST['skillName']);
             $skillLevel = intval($_POST['skillLevel']);
-            $errors = [];
+
 
             if (empty($skillName)) {
                 $errors[] = "Veuillez entrer un nom de compétence";
@@ -50,20 +50,13 @@ WHERE skillId = :skillId";
                 $statementUpdateSkill->bindValue(':skillId', $skillId, PDO::PARAM_INT);
                 $statementUpdateSkill->execute();
                 header("Location:?page=characterSheet&index=$id&skillId=$skillId");
-            } else {
-                foreach ($errors as $error) {
-
-                    ?>
-                    <p class="alert alert-danger">
-                        <?= $error; ?>
-                    </p>
-                    <?php
-                }
             }
         }
         return [
             'results'=>$results,
-            '$skillId'=>$skillId,
+            'skillId'=>$skillId,
+            'errors'=>$errors,
+
         ];
     }
 
