@@ -1,4 +1,5 @@
 <?php
+use Model\Skill;
 ?>
 <?php
 foreach ($results as $result) {
