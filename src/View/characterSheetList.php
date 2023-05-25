@@ -6,10 +6,7 @@ foreach ($results as $result) {
         <section>
             <div class="characterName">
                 <h2>Nom du joueur :
-                    <<<<<<< HEAD <?php echo implode(', ', $resultsUser[$result->getCharacterSheetId()]) ?>
-                        =======
-                        <?php echo implode(', ', $resultsUser) ?>
-                        >>>>>>> 24ab2c6 (34-deleteCharacterSheet)
+                    <?php echo implode(', ', $resultsUser[$result->getCharacterSheetId()]) ?>
                 </h2>
             </div>
             <div class="characterName">
