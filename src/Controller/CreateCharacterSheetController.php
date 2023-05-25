@@ -13,13 +13,21 @@ class CreateCharacterSheetController extends AbstractController
         $characterSheetStatusList = CharacterSheet::CHARACTER_SHEET_STATUS_LIST;
         $id = null;
         $errors = [];
+
         $userId = ($_SESSION['user'])->getUserrId();
         $characterSheet = (new CharacterSheet($_POST))
             ->setUserrId($userId);
 
         if (!empty($_POST)) {
 
+            $total = $_POST['characteristicStrength'] + $_POST['characteristicDexterity'] + $_POST['characteristicStamina'] + $_POST['characteristicIntelligence'] + $_POST['characteristicWisdom'] + $_POST['characteristicLuck'];
 
+            if ($total > 80) {
+                $errors[] = "Entrez moins de points de compétence, vous ne devez pas dépacer 80";
+            }
+            if ($total < 60) {
+                $errors[] = "Entrez plus de points de compétence vous devez dépacer 60";
+            }
             if ($characterSheet->getcharacterSheetName() == "") {
                 $errors[] = "Entrer un nom de personnage";
             }
