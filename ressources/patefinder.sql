@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le : mar. 16 mai 2023 à 12:29
+-- Généré le : mer. 24 mai 2023 à 16:31
 -- Version du serveur : 8.0.31
 -- Version de PHP : 8.2.0
 
@@ -35,15 +35,6 @@ CREATE TABLE IF NOT EXISTS `charactersheetuser` (
   KEY `characterSheetId` (`characterSheetId`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
 
---
--- Déchargement des données de la table `charactersheetuser`
---
-
-INSERT INTO `charactersheetuser` (`userrId`, `characterSheetId`) VALUES
-(3, 5),
-(1, 6),
-(1, 7);
-
 -- --------------------------------------------------------
 
 --
@@ -71,16 +62,7 @@ CREATE TABLE IF NOT EXISTS `character_sheet` (
   `gameId` int DEFAULT NULL,
   PRIMARY KEY (`characterSheetId`),
   KEY `gameId` (`gameId`)
-) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb3;
-
---
--- Déchargement des données de la table `character_sheet`
---
-
-INSERT INTO `character_sheet` (`characterSheetId`, `characterSheetName`, `characterSheetRace`, `characterSheetClass`, `characterSheetStatus`, `characteristicInitiative`, `characteristicHpMax`, `characteristicActualHp`, `characteristicMpMax`, `characteristicActualMp`, `characteristicStrength`, `characteristicDexterity`, `characteristicStamina`, `characteristicIntelligence`, `characteristicWisdom`, `characteristicLuck`, `gameId`) VALUES
-(5, 'Vindo', 'Mort-vivant', 'Mage', 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 17),
-(6, 'azu', 'Mort-vivant', 'rogue', 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, NULL),
-(7, 'super demo', 'gnome lepreux', 'demo', 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, NULL);
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
 
 -- --------------------------------------------------------
 
@@ -97,14 +79,7 @@ CREATE TABLE IF NOT EXISTS `equipement` (
   `idCharacterSheet` int NOT NULL,
   PRIMARY KEY (`equipementId`),
   KEY `idCharacter` (`idCharacterSheet`)
-) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8mb3;
-
---
--- Déchargement des données de la table `equipement`
---
-
-INSERT INTO `equipement` (`equipementId`, `equipementName`, `equipementDamage`, `equipementRange`, `idCharacterSheet`) VALUES
-(7, 'arc', 5, 5, 3);
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
 
 -- --------------------------------------------------------
 
@@ -120,15 +95,7 @@ CREATE TABLE IF NOT EXISTS `game` (
   `userrId` int DEFAULT NULL,
   PRIMARY KEY (`gameId`),
   KEY `userrId` (`userrId`)
-) ENGINE=InnoDB AUTO_INCREMENT=18 DEFAULT CHARSET=utf8mb3;
-
---
--- Déchargement des données de la table `game`
---
-
-INSERT INTO `game` (`gameId`, `gameName`, `gameLore`, `userrId`) VALUES
-(10, 'la communauter des sans cullottes', 'The future of civilization rests in the fate of the One Ring, which has been lost for centuries. Powerful forces are unrelenting in their search for it. But fate has placed it in the hands of a young Hobbit named Frodo Baggins (Elijah Wood), who inherits the Ring and steps into legend. A daunting task lies ahead for Frodo when he becomes the Ringbearer - to destroy the One Ring in the fires of Mount Doom where it was forged.', 4),
-(17, 'qdfv', 'vsdv', 4);
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
 
 -- --------------------------------------------------------
 
@@ -144,7 +111,7 @@ CREATE TABLE IF NOT EXISTS `skill` (
   `idCharacterSheet` int NOT NULL,
   PRIMARY KEY (`skillId`),
   KEY `idCharacterSheet` (`idCharacterSheet`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb3;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
 
 -- --------------------------------------------------------
 
@@ -162,17 +129,7 @@ CREATE TABLE IF NOT EXISTS `userr` (
   `userrProfilePicture` double DEFAULT NULL,
   `userrGender` tinyint(1) DEFAULT NULL,
   PRIMARY KEY (`userrId`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb3;
-
---
--- Déchargement des données de la table `userr`
---
-
-INSERT INTO `userr` (`userrId`, `userrRole`, `userrName`, `userrEmail`, `userrPassword`, `userrProfilePicture`, `userrGender`) VALUES
-(1, 0, 'azuera', 'azu@lolo.com', '$2y$10$jbUxkjNoqJnNPAuL2d.lHunFpUIZKLYOyLwz0PQlJUoAWUE2S7cOu', 0, 1),
-(2, 1, 'azuera', 'azu@lolo.com', '$2y$10$eorpRIcMktR05RtG3B8LRuSf2M55iRcQYkkPR2JtD.8QV.N8sbQJq', 0, 1),
-(3, 1, 'vindo', 'vindo@lolo.com', '$2y$10$s7MM2WfUuIWMhsqtpJAfzehqKCYnRHT5vfoRy09No244wSXfOUFi.', 0, 2),
-(4, 1, 'Hich', 'hichambenzaied69150@gmail.com', '$2y$10$env6lfAyvn6zpxMYVrq3oeUQMX9pP.a12LyYVdffrPjoxtANka2WS', 0, 1);
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
 
 --
 -- Contraintes pour les tables déchargées
