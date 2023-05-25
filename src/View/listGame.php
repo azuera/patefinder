@@ -1,11 +1,8 @@
+<a class="btn btn-primary" href="?page=createGame"> Créer votre partie</a>
 <?php
-
-
-
-
 foreach ($resultsGame as $resultGame){
 ?>
-<a class="btn btn-primary" href="?page=createGame"> Créer votre partie</a>
+
 
 
 

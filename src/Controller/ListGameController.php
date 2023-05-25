@@ -10,6 +10,7 @@ class ListGameController extends AbstractController
 
     public function getContent(): array
     {
+        $resultsUser=null;
         $sqlSelect = "SELECT * FROM `game`";
         $statementSelectGame = $this->connection->prepare($sqlSelect);
         $statementSelectGame->execute();
