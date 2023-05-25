@@ -24,6 +24,11 @@ foreach ($results as $result) {
                     <?php echo $result->getcharacterSheetStatus() ?>
                 </p>
             </div>
+            <!-- Affichage delete characterSheet -->
+
+            <a href="?page=deleteCharacterSheet&index=<?= $result->getCharacterSheetId(); ?>" class="btn btn-danger">Supprimer
+                la
+                fiche personnage</a>
             <a class="btn btn-primary" href="?page=characterSheet&index=<?= $result->getCharacterSheetId(); ?>">Voir plus</a>
 
             <?php

@@ -93,7 +93,7 @@
     value="<?= $characterSheet->getcharacteristicLuck() ?>" min="0" max="20" required>
 
 
-
+  <p>Vous devrez avoir maximum 80 points et minmum 60 points.</p>
 
   <button type="submit" class="btn btn-primary">Envoyer</button>
 </form>
